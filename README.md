@@ -10,7 +10,7 @@ A Java-based library that parses RESTful APIs into useful objects.
 ---
 ### Gradle Dependency
 
-Easily reference the library in your Android projects using this dependency in your module's `build.gradle` file:
+Easily reference the library in your Gradle projects using this dependency in your module's `build.gradle` file:
 
 ```Groovy
 dependencies {
