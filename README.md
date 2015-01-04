@@ -76,3 +76,16 @@ for(int i : guideObject.getManeuverPoints()){
 	System.out.print(" " + i);
 }
 ```
+---
+#### Constructors Class
+The Constructors class is used to create URL and JSON. Although no interaction is needed with this class to use the implemented APIs, you can use it as support for other RESTful APIs that will be integrated into EasyAPI.
+
+The static method constructUrl allows for creation of a URL from a base URL and an array of keys and parameters, with the even numbers being keys and odd numbers being their respective values.
+```Java
+String url = Constructors.constructUrl(BASE_URL, params_array);
+```
+
+The static method constructJSON takes in a url, downloads the JSON content from server, and returns a JSONObject from the org.json library.
+```Java
+JSONObject jObject = Constructors.constructJSON(url);
+```
