@@ -2,6 +2,11 @@ EasyAPI
 =======
 
 A Java-based library that parses RESTful APIs into useful objects.
+EasyAPI hopes to create easy RESTful API interaction by create a simple object from your API key, and then allowing full API interaction throught that object.
+
+###Currently Supported APIs:
+- MapQuest Directions V0.2 (Partial)
+- Google Directions (Partial)
 
 ---
 ###Recent Changes
@@ -75,6 +80,20 @@ for(DirectionNode node : guideObject.getDirectionNodes()){
 for(int i : guideObject.getManeuverPoints()){
 	System.out.print(" " + i);
 }
+```
+####Google Direction API
+The Google Direction implementation of EasyAPI allows easy creation of an object that can gather trip information from Google.
+
+1) First, simply create a GoogleDirections object from your Google API Key
+```Java
+//Create a GoogleDirections object with your personal key
+GoogleDirections navObject = new GoogleDirections("YOUR_API_KEY_HERE");
+```
+
+2) We can now do a variety of operations with this object
+```Java
+//Use the timeToLocation method to retrieve the driving time from one location to another, in seconds
+Long time = navObject.getTimeToLocation("Origin Address", "Destination Address");
 ```
 ---
 ### Constructors Class
