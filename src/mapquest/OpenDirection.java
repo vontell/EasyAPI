@@ -33,8 +33,8 @@ public class OpenDirection {
 	private int currentNode;
 	
 	/**
-	 * Creates an object that can access the Open Guidance API V2
-	 * @param key Your API key for the Open Guidance API
+	 * Creates an object that can access the Open Direction API V2
+	 * @param key Your API key for the Open Direction API
 	 */
 	public OpenDirection(String key){
 		

@@ -12,18 +12,18 @@ public class OpenDirectionExample {
 	
 	public static void main(String[] args) {
 		
-		//Create a OpenGuidance object with your personal key
-		OpenDirection guideObject = new OpenDirection("YOUR_API_KEY_HERE");
+		//Create a OpenDirection object with your personal key
+		OpenDirection guideObject = new OpenDirection("YOUR_APP_KEY_HERE");
 		
-		//Set the trip of this OpenGuidance object
+		//Set the trip of this OpenDirection object
 		guideObject.setTrip("375 West Washington St, Bristol, CT", "229 Vassar Street, Cambridge, MA");
 		
 		//Show the bounding box
 		System.out.println("Bounding Box:");
-		System.out.println(guideObject.getUlLatLng()[0]);
-		System.out.println(guideObject.getUlLatLng()[1]);
-		System.out.println(guideObject.getLrLatLng()[0]);
-		System.out.println(guideObject.getLrLatLng()[1]);
+		System.out.println("Upper Left Lat: " + guideObject.getUlLatLng()[0]);
+		System.out.println("Upper Left Lon: " + guideObject.getUlLatLng()[1]);
+		System.out.println("Lower Right Lat: " + guideObject.getLrLatLng()[0]);
+		System.out.println("Lower Right Lon: " + guideObject.getLrLatLng()[1]);
 		System.out.println();
 		
 		//Show the fuel

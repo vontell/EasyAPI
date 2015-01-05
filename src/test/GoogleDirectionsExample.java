@@ -13,7 +13,7 @@ public class GoogleDirectionsExample {
 		
 		//TODO: Make it so it saves the JSON, and then you can refresh and perform operations
 		
-		//Create a GoogleDirection object with your personal key
+		//Create a GoogleDirections object with your personal key
 		GoogleDirections navObject = new GoogleDirections("YOUR_API_KEY_HERE");
 		
 		//Use the TimeToLocation method to retrieve the driving time from one location to another
