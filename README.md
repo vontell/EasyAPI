@@ -10,7 +10,9 @@ EasyAPI hopes to create easy RESTful API interaction by create a simple object f
 
 ---
 ###Recent Changes
-> Coming Soon!
+> Open Direction 0.3 - Downloading API data is now a seperate step
+
+> Constructors Class - Added a method that allows you to add and modify parameters of an existing URL
 
 ---
 ### Gradle Dependency
@@ -51,7 +53,7 @@ guideObject.setTrip(double oriLat, double oriLon, double destLat, double destLon
 //Download the data, preferably asynchronously
 guideObject.downloadData();
 ```
-5) Once the trip is downloaded from step 3, you can now get a multitude of information:
+5) Once the trip is downloaded from step 4, you can now get a multitude of information:
 ```Java
 //Print the bounding box
 System.out.println("Upper Left Lat: " + guideObject.getUlLatLng()[0]);
@@ -102,13 +104,18 @@ Long time = navObject.getTimeToLocation("Origin Address", "Destination Address")
 ```
 ---
 ### Constructors Class
-The Constructors class is used to create URL and JSON. Although no interaction is needed with this class to use the implemented APIs, you can use it as support for other RESTful APIs that will be integrated into EasyAPI.
+The Constructors class is used to create URLs and JSON. Although no interaction is needed with this class to use the implemented APIs, you can use it as support for other RESTful APIs that will be integrated into EasyAPI.
+
+Please see the ConstructorsExample.java file for a full example.
 
 The static method constructUrl allows for creation of a URL from a base URL and an array of keys and parameters, with the even numbers being keys and odd numbers being their respective values.
 ```Java
 String url = Constructors.constructUrl(BASE_URL, params_array);
 ```
-
+The static method modifyUrlParam allows for the modification of an existing URL. If the parameter already exists, it is replaced. If not, it is added to the URL.
+```Java
+String newURL = Constructors.modifyUrlParam(EXISTING_URL, more_params_array);
+```
 The static method constructJSON takes in a url, downloads the JSON content from server, and returns a JSONObject from the org.json library.
 ```Java
 JSONObject jObject = Constructors.constructJSON(url);
