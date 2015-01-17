@@ -12,13 +12,14 @@ import resources.Constructors;
  * A class that can gather information from the MapQuest Directions API
  * Documentation at: http://developer.mapquest.com/web/products/dev-services/directions-ws
  * @author Aaron Vontell
- * @version 0.2
+ * @version 0.3
  */
 public class OpenDirection {
 	
 	private String apiKey;
 	private String BASE_URL = "http://open.mapquestapi.com/directions/v2/route?";
 	private String jsonContent;
+	private String finalURL;
 	
 	//Stored Information
 	private DirectionNode[] directionNodes;
@@ -43,7 +44,7 @@ public class OpenDirection {
 	}
 	
 	/**
-	 * Retrieves and stores the directions to go from one location to another, with all extra information as well
+	 * Sets the trip using string representations of addresses
 	 * @param origin The string representation/address of your origin
 	 * @param destination The string representation/address of your destination
 	 */
@@ -62,20 +63,12 @@ public class OpenDirection {
 		params[8] = "generalize";
 		params[9] = "0";
 		
-		String url = Constructors.constructUrl(BASE_URL, params);
-		System.out.println(url);
-		
-		//Retrieve the JSON data, and also store the text for later use
-		JSONObject jObject = Constructors.constructJSON(url);
-		jsonContent = jObject.toString();
-		
-		//Store the information
-		parseData();
+		finalURL = Constructors.constructUrl(BASE_URL, params);
 		
 	}
 	
 	/**
-	 * Retrieves and stores the directions to go from one location to another, with all extra information as well
+	 * Sets the trip using origina and destination coordinates
 	 * @param oriLat The origins latitude
 	 * @param oriLon The origins longitude
 	 * @param destLat The destinations latitude
@@ -92,12 +85,20 @@ public class OpenDirection {
 		params[4] = "to";
 		params[5] = Double.toString(destLat).replace(" ", "+") + "," + Double.toString(destLon).replace(" ", "+");
 		
-		String url = Constructors.constructUrl(BASE_URL, params);
+		finalURL = Constructors.constructUrl(BASE_URL, params);
+		
+	}
+	
+	/**
+	 * Downloads the data from the server
+	 * This is the method that should be asynchronously performed
+	 */
+	public void downloadData(){
 		
 		//Retrieve the JSON data, and also store the text for later use
-		JSONObject jObject = Constructors.constructJSON(url);
+		JSONObject jObject = Constructors.constructJSON(finalURL);
 		jsonContent = jObject.toString();
-		
+				
 		//Store the information
 		parseData();
 		
@@ -288,7 +289,6 @@ public class OpenDirection {
 		}
 		
 	}
-
 	
 	/**
 	 * @return the apiKey
@@ -340,7 +340,7 @@ public class OpenDirection {
 	}
 
 	/**
-	 * @return the totalTime
+	 * @return the total time to complete this trip
 	 */
 	public int getTotalTime() {
 		return totalTime;
@@ -393,4 +393,9 @@ public class OpenDirection {
      */
     public void setCurrentNode(int n) { currentNode = n;}
 	
+    /**
+     * Method to easily increment the current direction node by one
+     */
+    public void incrementNode() { currentNode++; }
+    
 }

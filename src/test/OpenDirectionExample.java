@@ -6,7 +6,7 @@ import mapquest.OpenDirection;
 /**
  * Class to test the operations and prove as an example for the OpenDirection class
  * @author Aaron Vontell
- * @version 0.1
+ * @version 0.2
  */
 public class OpenDirectionExample {
 	
@@ -17,6 +17,9 @@ public class OpenDirectionExample {
 		
 		//Set the trip of this OpenDirection object
 		guideObject.setTrip("375 West Washington St, Bristol, CT", "229 Vassar Street, Cambridge, MA");
+		
+		//Download the data, preferably asynchronously
+		guideObject.downloadData();
 		
 		//Show the bounding box
 		System.out.println("Bounding Box:");

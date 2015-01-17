@@ -19,18 +19,25 @@ public class Constructors {
 	/**
 	 * Creates a URL for the current API
 	 * @param base The base API URL
-	 * @param pairs Array with pairs of parameters, where the even indexes hold param names, and the odd indexes hold their powers
+	 * @param pairs Array with pairs of parameters, where the even indexes hold param names, and the odd indexes hold their values
 	 * @return The string of the constructed URL
 	 */
-	public static String constructUrl(String base, String [] pairs){
+	public static String constructUrl(String base, String[] pairs){
 		
 		String URL = base;
 		
 		for(int i = 0; i < pairs.length; i += 2){
 			
 			if(pairs[i] != null){
-				String pair = "&" + pairs[i] + "=" + pairs[i+1];
-				URL += pair;
+				if(i != 0){
+					String pair = "&" + pairs[i] + "=" + pairs[i+1];
+					URL += pair;
+				}
+				else {
+					String pair = pairs[i] + "=" + pairs[i+1];
+					URL += pair;
+				}
+				
 			}
 			
 		}
@@ -66,6 +73,43 @@ public class Constructors {
 		}
 		
 		return new JSONObject(content);
+		
+	}
+	
+	/**
+	 * Adds or changes extra parameter pairs to a URL that has already been created
+	 * If the parameter already exists in the URL, the parameter is changed
+	 * If the parameter does not exist, it is added onto the URL
+	 * @param url The URL to add parameters to
+	 * @param pairs Array with pairs of parameters, where the even indexes hold param names, and the odd indexes hold their values
+	 * @return The string of the constructed URL
+	 */
+	public static String modifyUrlParam(String url, String[] pairs){
+		
+		String URL = url;
+		
+		for(int i = 0; i < pairs.length; i += 2){
+			
+			if(pairs[i] != null){
+				
+				if(URL.contains(pairs[i] + "=")){
+					int start = URL.indexOf(pairs[i] + "=");
+					int end = URL.indexOf("&", start);
+					String toReplace = URL.substring(start, end);
+					URL = URL.replace(toReplace, pairs[i] + "=" + pairs[i+1]);
+				}
+				else{
+					//TODO: Make sure this is not the first param being added (don't want the '&')
+					String pair = "&" + pairs[i] + "=" + pairs[i+1];
+					URL += pair;
+				}
+
+			}
+			
+		}
+		
+		URL = URL.replace(" ","%20");
+		return URL;
 		
 	}
 	
