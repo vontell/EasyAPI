@@ -38,7 +38,7 @@ OpenDirection guideObject = new OpenDirection("YOUR_APP_KEY_HERE");
 ```Java
 Coming Soon!
 ```
-3) Next, set the trip in two ways (note that this is when the call to the server is made):
+3) Next, set the trip in two ways:
 ```Java
 //Set the trip using human text
 guideObject.setTrip("Origin Street Address, City, State", "Destination Street Address, City, State");
@@ -46,7 +46,12 @@ guideObject.setTrip("Origin Street Address, City, State", "Destination Street Ad
 //Set the trip using origin and destination latitude and longitude
 guideObject.setTrip(double oriLat, double oriLon, double destLat, double destLon);
 ```
-4) Once the trip is downloaded from step 3, you can now get a multitude of information:
+4) Once the trip is set and modified, download the data
+```Java
+//Download the data, preferably asynchronously
+guideObject.downloadData();
+```
+5) Once the trip is downloaded from step 3, you can now get a multitude of information:
 ```Java
 //Print the bounding box
 System.out.println("Upper Left Lat: " + guideObject.getUlLatLng()[0]);
