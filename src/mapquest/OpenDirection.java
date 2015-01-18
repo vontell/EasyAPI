@@ -221,7 +221,7 @@ public class OpenDirection {
 				jObject = jArray.getJSONObject(i);
 					
 				int index = jObject.getInt("index");
-				int manType = jObject.getInt("direction");
+				int manType = jObject.getInt("turnType");
 				String direct = jObject.getString("narrative");
 				double dist = jObject.getDouble("distance");
 				int time = jObject.getInt("time");

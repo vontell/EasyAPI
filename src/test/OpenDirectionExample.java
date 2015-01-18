@@ -14,13 +14,13 @@ public class OpenDirectionExample {
 		
 		//Create a OpenDirection object with your personal key
 		OpenDirection guideObject = new OpenDirection("YOUR_APP_KEY_HERE");
-		
+
 		//Set the trip of this OpenDirection object
 		guideObject.setTrip("375 West Washington St, Bristol, CT", "229 Vassar Street, Cambridge, MA");
 		
 		//Download the data, preferably asynchronously
 		guideObject.downloadData();
-		
+
 		//Show the bounding box
 		System.out.println("Bounding Box:");
 		System.out.println("Upper Left Lat: " + guideObject.getUlLatLng()[0]);
