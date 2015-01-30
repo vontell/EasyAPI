@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 
@@ -68,11 +69,44 @@ public class Constructors {
 			}
 			bufferedReader.close();
 			
+			return new JSONObject(content);
+			
 		} catch(Exception e){
+			System.out.println(content);
 			System.out.println("Error occured: " + e);
+			return new JSONObject();
 		}
 		
-		return new JSONObject(content);
+	}
+	
+	/**
+	 * Makes an HTTP GET call to download the JSON from the given URL
+	 * @param URL The URL to connect to
+	 * @return A JSONArray containing the HTTP GET results
+	 */
+	public static JSONArray constructJSONArray(String URL){
+		
+		String content = "";
+
+		try{
+			
+			URL Url = new URL(URL);
+			URLConnection conn = Url.openConnection();
+			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+			
+			String line;
+			while ((line = bufferedReader.readLine()) != null){
+				content += line + "\n";
+			}
+			bufferedReader.close();
+			
+			return new JSONArray(content);
+			
+		} catch(Exception e){
+			System.out.println(content);
+			System.out.println("Error occured: " + e);
+			return new JSONArray();
+		}
 		
 	}
 	
