@@ -14,7 +14,7 @@ import resources.Constructors;
 public class SpotGetter {
 	
 	private String apiKey;
-	private String BASE_URL = "http://open.mapquestapi.com/directions/v2/route?";
+	private String BASE_URL = "https://parcio.herokuapp.com/parkspot/";
 	private String jsonContent;
 	private String finalURL;
 	

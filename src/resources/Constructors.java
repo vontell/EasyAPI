@@ -1,10 +1,18 @@
 package resources;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -107,6 +115,34 @@ public class Constructors {
 			System.out.println("Error occured: " + e);
 			return new JSONArray();
 		}
+		
+	}
+	
+	/**
+	 * Posts data to the specified URL
+	 * @param urlt The URL to post information to
+	 * @param data The JSON data to post
+	 * @return The response code
+	 * @throws IOException
+	 */
+	public static int postData(String urlt, String data) throws IOException{
+		
+		HttpClient httpClient = new DefaultHttpClient();
+
+	    try {
+	        HttpPost request = new HttpPost("urlt");
+	        StringEntity params =new StringEntity(data);
+	        request.addHeader("content-type", "application/json");
+	        request.setEntity(params);
+	        HttpResponse response = httpClient.execute(request);
+	        return response.getStatusLine().getStatusCode();
+	        // handle response here...
+	    }catch (Exception ex) {
+	        System.out.println(ex.getMessage());
+	        return 400;
+	    } finally {
+	        httpClient.getConnectionManager().shutdown();
+	    }
 		
 	}
 	

@@ -1,6 +1,9 @@
 package test;
 
+import java.io.IOException;
+
 import parcio.SpotGetter;
+import resources.Constructors;
 
 /**
  * Class to test the operations and prove as an example for the SpotGetter Parcio class
@@ -10,9 +13,8 @@ import parcio.SpotGetter;
 public class SpotGetterExample {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		
-		//Create a OpenDirection object with your personal key
+		//Create a SpotGetter object with your personal key
 		SpotGetter spotRet = new SpotGetter("YOUR_APP_KEY_HERE");
 				
 		//Download the data, preferably asynchronously
