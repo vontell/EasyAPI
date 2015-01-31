@@ -7,12 +7,15 @@ EasyAPI hopes to create easy RESTful API interaction by create a simple object f
 ###Currently Supported APIs:
 - MapQuest Directions V0.2 (Partial)
 - Google Directions (Partial)
+- Parcio Parking API (Personal Company Use, Partial)
 
 ---
 ###Recent Changes
+> Parcio API V0.1 - Started object for using the Parcio Parking API
+
 > Open Direction 0.3 - Downloading API data is now a seperate step
 
-> Constructors Class - Added a method that allows you to add and modify parameters of an existing URL
+> Constructors Class - Added a method for posting data which is in JSON format
 
 ---
 ### Gradle Dependency
@@ -101,6 +104,47 @@ GoogleDirections navObject = new GoogleDirections("YOUR_API_KEY_HERE");
 ```Java
 //Use the timeToLocation method to retrieve the driving time from one location to another, in seconds
 Long time = navObject.getTimeToLocation("Origin Address", "Destination Address");
+```
+####Parcio Parking API
+The Parcio Parking implementation of EasyAPI allows easy retrieval and posting of parking spots and Parcio users, including the use authentication of users.
+
+#####Getting Spots
+1) First, simply create a SpotGetter object from your Parcio API Key
+```Java
+//Create a SpotGetter object with your personal key
+SpotGetter spotRet = new SpotGetter("YOUR_APP_KEY_HERE");
+```
+
+2) Next we can download the data for all parkng spots in the database
+```Java
+//Download the data, preferably asynchronously
+spotRet.downloadData();
+```
+
+3) The object now holds all of the spots, which we can retrieve. The data is held in a variety of arrays, where a single index can be used across all to retrieve the information for a single spot. Use the getNumSpots() method to retrieve the number of spots.
+```Java
+//Iterate through a list of the spots, printing information
+int totalSpots = spotRet.getNumSpots();
+for(int index = 0; index < totalSpots; index++){
+	System.out.println("----------------------------------------------");
+	System.out.println("Location:\t" + spotRet.getAddress(index) + " (" + spotRet.getLat(index) + "," + 	spotRet.getLon(index) + ")");
+	System.out.println("Held by:\t" + spotRet.getUser(index));
+	System.out.println("Created:\t" + spotRet.getTimeCreated(index));
+	System.out.println("Taken?:\t\t" + spotRet.getIsFilled(index));
+	System.out.println("Points:\t\t" + spotRet.getPoints(index));
+	System.out.println("Timeout:\t" + spotRet.getTimeout(index));
+	System.out.println("Spot Type:\t" + spotRet.getSpotType(index));
+	System.out.println("Start Times:\t" + spotRet.getMetTime(index) + ", " + spotRet.getPerTime(index) + ", " + spotRet.getFreTime(index));
+}
+```
+
+4) For a more restrictive selection, you can use the findNearbySpots method, which takes in a latitude, longitude, and radius. It returns an array of the indeces that corresponds to the spots that are within that radius.
+```Java
+//Find the indeces corresponding to nearby spots
+int[] nearbySpots = spotRet.findNearbySpots(45.23455, 21.47975, 0.5);
+
+//Print the indeces
+for(int index : nearbySpots){ System.out.println(index); }
 ```
 ---
 ### Constructors Class
