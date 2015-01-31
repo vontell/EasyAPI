@@ -130,14 +130,15 @@ public class Constructors {
 		HttpClient httpClient = new DefaultHttpClient();
 
 	    try {
-	        HttpPost request = new HttpPost("urlt");
-	        StringEntity params =new StringEntity(data);
+	        HttpPost request = new HttpPost(urlt);
+	        StringEntity params = new StringEntity(data);
 	        request.addHeader("content-type", "application/json");
 	        request.setEntity(params);
 	        HttpResponse response = httpClient.execute(request);
 	        return response.getStatusLine().getStatusCode();
 	        // handle response here...
 	    }catch (Exception ex) {
+	    	ex.printStackTrace();
 	        System.out.println(ex.getMessage());
 	        return 400;
 	    } finally {

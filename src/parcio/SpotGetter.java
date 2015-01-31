@@ -1,5 +1,7 @@
 package parcio;
 
+import java.util.ArrayList;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -48,9 +50,31 @@ public class SpotGetter {
 		
 	}
 	
-	public void loadNearbySpots(double lat, double lon){
+	/**
+	 * Finds the spots within the radius of the given coordinates, and
+	 * returns the spot indeces
+	 * @param lati The latitude to search near
+	 * @param long The longitude to search near
+	 * @param radius The radius to search within (in degrees?)
+	 * @return The corresponding indeces of the spots that are nearby
+	 */
+	public int[] findNearbySpots(double lati, double longi, double radius){
 		
+		ArrayList<Integer> answers = new ArrayList<Integer>();
 		
+		for(int index = 0; index < numSpots; index++){
+			double distance = Math.sqrt(Math.pow(lati - lat[index], 2) + Math.pow(longi - lon[index], 2));
+			if(distance < radius){
+				answers.add(index);
+			}
+		}
+		
+		int[] results = new int[answers.size()];
+		for(int i = 0; i < results.length; i++){
+			results[i] = answers.get(i);
+		}
+		
+		return results;
 		
 	}
 	

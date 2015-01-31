@@ -32,7 +32,7 @@ public class SpotPoster {
 		apiKey = key;
 		
 		//Should eventually move to loading
-		finalURL = "https://parcio.herokuapp.com/parkspot/";
+		finalURL = "https://parcio.herokuapp.com/parkspot";
 		
 	}
 	
@@ -66,6 +66,7 @@ public class SpotPoster {
 		jObj.put("per_time", per_time);
 		jObj.put("free_time", free_time);
 		jObj.put("available", available);
+		jObj.put("time_create", System.currentTimeMillis());
 		
 		System.out.println(jObj.toString());
 		
