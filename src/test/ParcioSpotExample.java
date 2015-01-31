@@ -11,7 +11,7 @@ import resources.Constructors;
  * @author Aaron Vontell
  * @version 0.1
  */
-public class SpotGetterExample {
+public class ParcioSpotExample {
 
 	public static void main(String[] args) {
 		
@@ -33,8 +33,6 @@ public class SpotGetterExample {
 			//Print the response code
 			System.out.println(spotPost.getResponseCode());
 		}
-		
-		
 		
 		
 		
