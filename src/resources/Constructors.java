@@ -8,6 +8,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
+import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
@@ -130,11 +131,17 @@ public class Constructors {
 		HttpClient httpClient = new DefaultHttpClient();
 
 	    try {
+	    	
 	        HttpPost request = new HttpPost(urlt);
 	        StringEntity params = new StringEntity(data);
-	        request.addHeader("content-type", "application/json");
+	        request.addHeader("Content-type", "application/json");
+	        request.addHeader("Authentication", "parcio:parcio");
 	        request.setEntity(params);
+	        System.out.println(request);
+	        for(Header h : request.getAllHeaders()){System.out.println(h);}
+	        System.out.println(data);
 	        HttpResponse response = httpClient.execute(request);
+	        for(Header h : response.getAllHeaders()){System.out.println(h);}
 	        return response.getStatusLine().getStatusCode();
 	        // handle response here...
 	    }catch (Exception ex) {
