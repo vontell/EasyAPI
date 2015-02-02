@@ -143,7 +143,6 @@ public class Constructors {
 	        HttpResponse response = httpClient.execute(request);
 	        for(Header h : response.getAllHeaders()){System.out.println(h);}
 	        return response.getStatusLine().getStatusCode();
-	        // handle response here...
 	    }catch (Exception ex) {
 	    	ex.printStackTrace();
 	        System.out.println(ex.getMessage());

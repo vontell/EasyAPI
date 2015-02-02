@@ -15,7 +15,7 @@ import resources.Constructors;
 public class SpotPoster {
 
 	private String apiKey;
-	private String BASE_URL = "https://parcio.herokuapp.com/parkspot";
+	private String BASE_URL = "https://parcio.herokuapp.com/parkspot/";
 	private String data;
 	private String finalURL;
 	

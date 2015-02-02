@@ -19,7 +19,7 @@ public class ParcioSpotExample {
 		SpotPoster spotPost = new SpotPoster("YOUR_APP_KEY_HERE");
 								
 		//Set the data for the spot to be posted
-		spotPost.setData("https://parcio.herokuapp.com/users/1/", "223 N William St, Bristol, CT", "34.65137", "23.56789",
+		spotPost.setData("https://parcio.herokuapp.com/users/1/", "223 N Cross St, Bristol, CT", "34.65137", "23.56789",
 								 1422662400, 10, 1, 0, 0, 0, true);
 				
 		//Post the data to the server
