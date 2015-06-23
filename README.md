@@ -11,6 +11,8 @@ EasyAPI hopes to create easy RESTful API interaction by create a simple object f
 
 ---
 ###Recent Changes
+> Google Direction 0.2 - Downloading, configuring, and parsing data now separate
+
 > Parcio API V0.1 - Started object for using the Parcio Parking API
 
 > Open Direction 0.3 - Downloading API data is now a seperate step
@@ -18,7 +20,7 @@ EasyAPI hopes to create easy RESTful API interaction by create a simple object f
 > Constructors Class - Added a method for posting data which is in JSON format
 
 ---
-### Gradle Dependency
+###Gradle Dependency
 
 Easily reference the library in your Gradle projects using this dependency in your module's `build.gradle` file:
 
@@ -29,10 +31,10 @@ dependencies {
 ```
 
 ---
-### Examples
+###Examples
 
 #### MapQuest Direction API
-The MapQuest Direction implementation of EasyAPI allows easy creation of an object that can gather trip information from set trip points and options.
+The MapQuest Direction implementation of EasyAPI allows easy creation of an object that can gather trip information from set trip points and options. (*See original documentation at https://developer.mapquest.com/products/directions/*)
 
 1) First, simply create an OpenDirection object from your MapQuest AppKey
 ```Java
@@ -92,19 +94,38 @@ for(int i : guideObject.getManeuverPoints()){
 }
 ```
 ####Google Direction API
-The Google Direction implementation of EasyAPI allows easy creation of an object that can gather trip information from Google.
+The Google Direction implementation of EasyAPI allows easy creation of an object that can gather trip information from Google. (*See original documentation at https://developers.google.com/maps/documentation/directions/*)
 
-1) First, simply create a GoogleDirections object from your Google API Key
+1) First, simply create an GoogleDirections object from your Google API Key
 ```Java
 //Create a GoogleDirections object with your personal key
 GoogleDirections navObject = new GoogleDirections("YOUR_API_KEY_HERE");
 ```
-
-2) We can now do a variety of operations with this object
+2) We can then set a multitude of options before making the request
 ```Java
-//Use the timeToLocation method to retrieve the driving time from one location to another, in seconds
-Long time = navObject.getTimeToLocation("Origin Address", "Destination Address");
+Coming Soon!
 ```
+3) Next, set the trip in two ways:
+```Java
+//Set the trip using human text
+navObject.setTrip("Origin Street Address, City, State", "Destination Street Address, City, State");
+
+//Set the trip using origin and destination latitude and longitude
+navObject.setTrip(double oriLat, double oriLon, double destLat, double destLon);
+```
+4) Once the trip is set and modified, download the data
+```Java
+//Download the data, preferably asynchronously
+navObject.downloadData();
+```
+5) Once the trip is downloaded from step 4, you can now get a multitude of information:
+```Java
+//Show the time to make this trip (seconds)
+System.out.println("Trip time: " + navObject.getTotalTime());
+
+More Coming Soon!
+```
+
 ####Parcio Parking API
 The Parcio Parking implementation of EasyAPI allows easy retrieval and posting of parking spots and Parcio users, including the use authentication of users.
 
