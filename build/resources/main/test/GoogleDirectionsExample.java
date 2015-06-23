@@ -12,7 +12,7 @@ public class GoogleDirectionsExample {
 	public static void main(String[] args) {
 
 		//Create a GoogleDirections object with your personal key
-		GoogleDirections navObject = new GoogleDirections("YOUR_APP_KEY_HERE");
+		GoogleDirections navObject = new GoogleDirections("AIzaSyBFbX7cknRMJnGtnHU7GOzZ8GIkAc1xwXU");
 
 		//Set the trip of this OpenDirection object
 		navObject.setTrip("229 Vassar Street, Cambridge", "375 West Washington Street, Bristol, CT");
