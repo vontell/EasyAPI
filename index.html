@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>EasyAPI by vontell</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">EasyAPI</h1>
+      <h2 class="project-tagline">A Java-based library that parses RESTful APIs into useful objects.</h2>
+      <a href="https://github.com/vontell/EasyAPI" class="btn">View on GitHub</a>
+      <a href="https://github.com/vontell/EasyAPI/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/vontell/EasyAPI/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="easyapi" class="anchor" href="#easyapi" aria-hidden="true"><span class="octicon octicon-link"></span></a>EasyAPI</h1>
+
+<p>A Java-based library that parses RESTful APIs into useful objects.
+EasyAPI hopes to create easy RESTful API interaction by create a simple object from your API key, and then allowing full API interaction throught that object.</p>
+
+<h3>
+<a id="currently-supported-apis" class="anchor" href="#currently-supported-apis" aria-hidden="true"><span class="octicon octicon-link"></span></a>Currently Supported APIs:</h3>
+
+<ul>
+<li>MapQuest Directions V0.2 (Partial)</li>
+<li>Google Directions (Partial)</li>
+<li>Parcio Parking API (Personal Company Use, Partial)</li>
+</ul>
+
+<hr>
+
+<h3>
+<a id="recent-changes" class="anchor" href="#recent-changes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recent Changes</h3>
+
+<blockquote>
+<p>Google Direction 0.2 - Downloading, configuring, and parsing data now separate</p>
+
+<p>Parcio API V0.1 - Started object for using the Parcio Parking API</p>
+
+<p>Open Direction 0.3 - Downloading API data is now a seperate step</p>
+
+<p>Constructors Class - Added a method for posting data which is in JSON format</p>
+</blockquote>
+
+<hr>
+
+<h3>
+<a id="gradle-dependency" class="anchor" href="#gradle-dependency" aria-hidden="true"><span class="octicon octicon-link"></span></a>Gradle Dependency</h3>
+
+<p>Easily reference the library in your Gradle projects using this dependency in your module's <code>build.gradle</code> file:</p>
+
+<div class="highlight highlight-Groovy"><pre>dependencies {
+    compile <span class="pl-s"><span class="pl-pds">'</span>Coming Soon!<span class="pl-pds">'</span></span>
+}</pre></div>
+
+<hr>
+
+<h3>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h3>
+
+<h4>
+<a id="mapquest-direction-api" class="anchor" href="#mapquest-direction-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>MapQuest Direction API</h4>
+
+<p>The MapQuest Direction implementation of EasyAPI allows easy creation of an object that can gather trip information from set trip points and options. (<em>See original documentation at <a href="https://developer.mapquest.com/products/directions/">https://developer.mapquest.com/products/directions/</a></em>)</p>
+
+<p>1) First, simply create an OpenDirection object from your MapQuest AppKey</p>
+
+<div class="highlight highlight-Java"><pre><span class="pl-c">//Create a OpenDirection object with your personal key</span>
+<span class="pl-smi">OpenDirection</span> guideObject <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">OpenDirection</span>(<span class="pl-s"><span class="pl-pds">"</span>YOUR_APP_KEY_HERE<span class="pl-pds">"</span></span>);</pre></div>
+
+<p>2) We can then set a multitude of options before making the request</p>
+
+<div class="highlight highlight-Java"><pre><span class="pl-smi">Coming</span> <span class="pl-smi">Soon</span><span class="pl-k">!</span></pre></div>
+
+<p>3) Next, set the trip in two ways:</p>
+
+<div class="highlight highlight-Java"><pre><span class="pl-c">//Set the trip using human text</span>
+guideObject<span class="pl-k">.</span>setTrip(<span class="pl-s"><span class="pl-pds">"</span>Origin Street Address, City, State<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Destination Street Address, City, State<span class="pl-pds">"</span></span>);
+
+<span class="pl-c">//Set the trip using origin and destination latitude and longitude</span>
+guideObject<span class="pl-k">.</span>setTrip(<span class="pl-k">double</span> oriLat, <span class="pl-k">double</span> oriLon, <span class="pl-k">double</span> destLat, <span class="pl-k">double</span> destLon);</pre></div>
+
+<p>4) Once the trip is set and modified, download the data</p>
+
+<div class="highlight highlight-Java"><pre><span class="pl-c">//Download the data, preferably asynchronously</span>
+guideObject<span class="pl-k">.</span>downloadData();</pre></div>
+
+<p>5) Once the trip is downloaded from step 4, you can now get a multitude of information:</p>
+
+<div class="highlight highlight-Java"><pre><span class="pl-c">//Print the bounding box</span>
+<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Upper Left Lat: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> guideObject<span class="pl-k">.</span>getUlLatLng()[<span class="pl-c1">0</span>]);
+<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Upper Left Lon: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> guideObject<span class="pl-k">.</span>getUlLatLng()[<span class="pl-c1">1</span>]);
+<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Lower Right Lat: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> guideObject<span class="pl-k">.</span>getLrLatLng()[<span class="pl-c1">0</span>]);
+<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Lower Right Lon: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> guideObject<span class="pl-k">.</span>getLrLatLng()[<span class="pl-c1">1</span>]);
+
+<span class="pl-c">//Show the fuel used to complete the trip (average, gallons)</span>
+<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Fuel used: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> guideObject<span class="pl-k">.</span>getFuelUsed());
+
+<span class="pl-c">//Show the time to make this trip (seconds)</span>
+<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Trip time: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> guideObject<span class="pl-k">.</span>getTotalTime());
+
+<span class="pl-c">//Show the total distance of this trip (in miles)</span>
+<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Trip distance: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> guideObject<span class="pl-k">.</span>getTotalDistance());
+
+<span class="pl-c">//Print the drawing points (the lat/lng points to draw on a map)</span>
+<span class="pl-k">for</span>(<span class="pl-k">int</span> i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> guideObject<span class="pl-k">.</span>getDrawLatPoints()<span class="pl-k">.</span>length; i<span class="pl-k">++</span>){
+    <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(guideObject<span class="pl-k">.</span>getDrawLatPoints()[i] <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\t</span><span class="pl-pds">"</span></span> <span class="pl-k">+</span> guideObject<span class="pl-k">.</span>getDrawLngPoints()[i]);
+}
+
+<span class="pl-c">//Print the information from each DirectionNode (the objects that represent maneuver points)</span>
+<span class="pl-k">for</span>(<span class="pl-smi">DirectionNode</span> node <span class="pl-k">:</span> guideObject<span class="pl-k">.</span>getDirectionNodes()){
+    <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(node<span class="pl-k">.</span>getIndex() <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>) For <span class="pl-pds">"</span></span> <span class="pl-k">+</span> node<span class="pl-k">.</span>getTime() <span class="pl-k">+</span>
+    <span class="pl-s"><span class="pl-pds">"</span> seconds, or <span class="pl-pds">"</span></span> <span class="pl-k">+</span> node<span class="pl-k">.</span>getDistance() <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span> miles, <span class="pl-pds">"</span></span> <span class="pl-k">+</span>
+    node<span class="pl-k">.</span>getHumanDirection() <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span> which is maneuver type <span class="pl-pds">"</span></span> <span class="pl-k">+</span> 
+    node<span class="pl-k">.</span>getManueverType());
+}
+
+<span class="pl-c">//Show the maneuver points for this trip (these are the drawing point indeces that involve a direction change)</span>
+<span class="pl-k">for</span>(<span class="pl-k">int</span> i <span class="pl-k">:</span> guideObject<span class="pl-k">.</span>getManeuverPoints()){
+    <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>print(<span class="pl-s"><span class="pl-pds">"</span> <span class="pl-pds">"</span></span> <span class="pl-k">+</span> i);
+}</pre></div>
+
+<h4>
+<a id="google-direction-api" class="anchor" href="#google-direction-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>Google Direction API</h4>
+
+<p>The Google Direction implementation of EasyAPI allows easy creation of an object that can gather trip information from Google. (<em>See original documentation at <a href="https://developers.google.com/maps/documentation/directions/">https://developers.google.com/maps/documentation/directions/</a></em>)</p>
+
+<p>1) First, simply create an GoogleDirections object from your Google API Key</p>
+
+<div class="highlight highlight-Java"><pre><span class="pl-c">//Create a GoogleDirections object with your personal key</span>
+<span class="pl-smi">GoogleDirections</span> navObject <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">GoogleDirections</span>(<span class="pl-s"><span class="pl-pds">"</span>YOUR_API_KEY_HERE<span class="pl-pds">"</span></span>);</pre></div>
+
+<p>2) We can then set a multitude of options before making the request</p>
+
+<div class="highlight highlight-Java"><pre><span class="pl-smi">Coming</span> <span class="pl-smi">Soon</span><span class="pl-k">!</span></pre></div>
+
+<p>3) Next, set the trip in two ways:</p>
+
+<div class="highlight highlight-Java"><pre><span class="pl-c">//Set the trip using human text</span>
+navObject<span class="pl-k">.</span>setTrip(<span class="pl-s"><span class="pl-pds">"</span>Origin Street Address, City, State<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Destination Street Address, City, State<span class="pl-pds">"</span></span>);
+
+<span class="pl-c">//Set the trip using origin and destination latitude and longitude</span>
+navObject<span class="pl-k">.</span>setTrip(<span class="pl-k">double</span> oriLat, <span class="pl-k">double</span> oriLon, <span class="pl-k">double</span> destLat, <span class="pl-k">double</span> destLon);</pre></div>
+
+<p>4) Once the trip is set and modified, download the data</p>
+
+<div class="highlight highlight-Java"><pre><span class="pl-c">//Download the data, preferably asynchronously</span>
+navObject<span class="pl-k">.</span>downloadData();</pre></div>
+
+<p>5) Once the trip is downloaded from step 4, you can now get a multitude of information:</p>
+
+<div class="highlight highlight-Java"><pre><span class="pl-c">//Show the time to make this trip (seconds)</span>
+<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Trip time: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> navObject<span class="pl-k">.</span>getTotalTime());
+
+<span class="pl-smi">More</span> <span class="pl-smi">Coming</span> <span class="pl-smi">Soon</span><span class="pl-k">!</span></pre></div>
+
+<h4>
+<a id="parcio-parking-api" class="anchor" href="#parcio-parking-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parcio Parking API</h4>
+
+<p>The Parcio Parking implementation of EasyAPI allows easy retrieval and posting of parking spots and Parcio users, including the use authentication of users.</p>
+
+<h5>
+<a id="getting-spots" class="anchor" href="#getting-spots" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Spots</h5>
+
+<p>1) First, simply create a SpotGetter object from your Parcio API Key</p>
+
+<div class="highlight highlight-Java"><pre><span class="pl-c">//Create a SpotGetter object with your personal key</span>
+<span class="pl-smi">SpotGetter</span> spotRet <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">SpotGetter</span>(<span class="pl-s"><span class="pl-pds">"</span>YOUR_APP_KEY_HERE<span class="pl-pds">"</span></span>);</pre></div>
+
+<p>2) Next we can download the data for all parkng spots in the database</p>
+
+<div class="highlight highlight-Java"><pre><span class="pl-c">//Download the data, preferably asynchronously</span>
+spotRet<span class="pl-k">.</span>downloadData();</pre></div>
+
+<p>3) The object now holds all of the spots, which we can retrieve. The data is held in a variety of arrays, where a single index can be used across all to retrieve the information for a single spot. Use the getNumSpots() method to retrieve the number of spots.</p>
+
+<div class="highlight highlight-Java"><pre><span class="pl-c">//Iterate through a list of the spots, printing information</span>
+<span class="pl-k">int</span> totalSpots <span class="pl-k">=</span> spotRet<span class="pl-k">.</span>getNumSpots();
+<span class="pl-k">for</span>(<span class="pl-k">int</span> index <span class="pl-k">=</span> <span class="pl-c1">0</span>; index <span class="pl-k">&lt;</span> totalSpots; index<span class="pl-k">++</span>){
+    <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>----------------------------------------------<span class="pl-pds">"</span></span>);
+    <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Location:<span class="pl-cce">\t</span><span class="pl-pds">"</span></span> <span class="pl-k">+</span> spotRet<span class="pl-k">.</span>getAddress(index) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span> (<span class="pl-pds">"</span></span> <span class="pl-k">+</span> spotRet<span class="pl-k">.</span>getLat(index) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>,<span class="pl-pds">"</span></span> <span class="pl-k">+</span>     spotRet<span class="pl-k">.</span>getLon(index) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>)<span class="pl-pds">"</span></span>);
+    <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Held by:<span class="pl-cce">\t</span><span class="pl-pds">"</span></span> <span class="pl-k">+</span> spotRet<span class="pl-k">.</span>getUser(index));
+    <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Created:<span class="pl-cce">\t</span><span class="pl-pds">"</span></span> <span class="pl-k">+</span> spotRet<span class="pl-k">.</span>getTimeCreated(index));
+    <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Taken?:<span class="pl-cce">\t\t</span><span class="pl-pds">"</span></span> <span class="pl-k">+</span> spotRet<span class="pl-k">.</span>getIsFilled(index));
+    <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Points:<span class="pl-cce">\t\t</span><span class="pl-pds">"</span></span> <span class="pl-k">+</span> spotRet<span class="pl-k">.</span>getPoints(index));
+    <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Timeout:<span class="pl-cce">\t</span><span class="pl-pds">"</span></span> <span class="pl-k">+</span> spotRet<span class="pl-k">.</span>getTimeout(index));
+    <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Spot Type:<span class="pl-cce">\t</span><span class="pl-pds">"</span></span> <span class="pl-k">+</span> spotRet<span class="pl-k">.</span>getSpotType(index));
+    <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>Start Times:<span class="pl-cce">\t</span><span class="pl-pds">"</span></span> <span class="pl-k">+</span> spotRet<span class="pl-k">.</span>getMetTime(index) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>, <span class="pl-pds">"</span></span> <span class="pl-k">+</span> spotRet<span class="pl-k">.</span>getPerTime(index) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span>, <span class="pl-pds">"</span></span> <span class="pl-k">+</span> spotRet<span class="pl-k">.</span>getFreTime(index));
+}</pre></div>
+
+<p>4) For a more restrictive selection, you can use the findNearbySpots method, which takes in a latitude, longitude, and radius. It returns an array of the indeces that corresponds to the spots that are within that radius.</p>
+
+<div class="highlight highlight-Java"><pre><span class="pl-c">//Find the indeces corresponding to nearby spots</span>
+<span class="pl-k">int</span>[] nearbySpots <span class="pl-k">=</span> spotRet<span class="pl-k">.</span>findNearbySpots(<span class="pl-c1">45.23455</span>, <span class="pl-c1">21.47975</span>, <span class="pl-c1">0.5</span>);
+
+<span class="pl-c">//Print the indeces</span>
+<span class="pl-k">for</span>(<span class="pl-k">int</span> index <span class="pl-k">:</span> nearbySpots){ <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(index); }</pre></div>
+
+<hr>
+
+<h3>
+<a id="constructors-class" class="anchor" href="#constructors-class" aria-hidden="true"><span class="octicon octicon-link"></span></a>Constructors Class</h3>
+
+<p>The Constructors class is used to create URLs and JSON. Although no interaction is needed with this class to use the implemented APIs, you can use it as support for other RESTful APIs that will be integrated into EasyAPI.</p>
+
+<p>Please see the ConstructorsExample.java file for a full example.</p>
+
+<p>The static method constructUrl allows for creation of a URL from a base URL and an array of keys and parameters, with the even numbers being keys and odd numbers being their respective values.</p>
+
+<div class="highlight highlight-Java"><pre><span class="pl-smi">String</span> url <span class="pl-k">=</span> <span class="pl-smi">Constructors</span><span class="pl-k">.</span>constructUrl(<span class="pl-c1">BASE_URL</span>, params_array);</pre></div>
+
+<p>The static method modifyUrlParam allows for the modification of an existing URL. If the parameter already exists, it is replaced. If not, it is added to the URL.</p>
+
+<div class="highlight highlight-Java"><pre><span class="pl-smi">String</span> newURL <span class="pl-k">=</span> <span class="pl-smi">Constructors</span><span class="pl-k">.</span>modifyUrlParam(<span class="pl-c1">EXISTING_URL</span>, more_params_array);</pre></div>
+
+<p>The static method constructJSON takes in a url, downloads the JSON content from server, and returns a JSONObject from the org.json library.</p>
+
+<div class="highlight highlight-Java"><pre><span class="pl-smi">JSONObject</span> jObject <span class="pl-k">=</span> <span class="pl-smi">Constructors</span><span class="pl-k">.</span>constructJSON(url);</pre></div>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/vontell/EasyAPI">EasyAPI</a> is maintained by <a href="https://github.com/vontell">vontell</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
