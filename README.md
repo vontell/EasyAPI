@@ -20,9 +20,13 @@ EasyAPI hopes to create easy RESTful API interaction by create a simple object f
 > Constructors Class - Added a method for posting data which is in JSON format
 
 ---
-###Gradle Dependency
+###Usage
 
-Easily reference the library in your Gradle projects using this dependency in your module's `build.gradle` file:
+####Project Import
+If you want use this library, download the project, import it into your workspace, and add the project as a library in your android project settings.
+
+####Gradle Dependency
+Alternatively, easily reference the library in your Gradle projects using this dependency in your module's `build.gradle` file:
 
 ```Groovy
 dependencies {
