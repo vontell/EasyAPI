@@ -25,7 +25,7 @@ public class WeatherUnderground extends EasyApiObject {
 
     }
 
-    public WUConditions getConditionsObject(){
+    public WUConditions createConditionsObject(){
         return new WUConditions(apiKey);
     }
 

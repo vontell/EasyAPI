@@ -1,7 +1,5 @@
 package test;
 
-import org.json.JSONObject;
-import resources.exceptions.*;
 import weatherunderground.WUConditions;
 import weatherunderground.WeatherUnderground;
 
@@ -26,13 +24,7 @@ public class WeatherUndergroundExample {
         //Download the data (asynchronous preferred), making sure to handle exceptions that may occur
         try {
             conditions.downloadData();
-        } catch (ApiException e) {
-            System.out.println(e.getMessage());
-        } catch (BadRequestException e) {
-            System.out.println(e.getMessage());
-        } catch (DataNotSetException e) {
-            System.out.println(e.getMessage());
-        } catch (AuthRequiredException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 

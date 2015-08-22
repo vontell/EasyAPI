@@ -17,23 +17,16 @@ public class WeatherUndergroundExample {
         // Set your API key and create an API Object
         final String API_KEY = "API_KEY";
         WeatherUnderground weatherObject = new WeatherUnderground(API_KEY);
-        System.out.println(weatherObject.possibleRequestsContains("poop"));
 
         //Create a conditions object, to retrieve current conditions
-        WUConditions conditions = weatherObject.getConditionsObject();
+        WUConditions conditions = weatherObject.createConditionsObject();
         //Set the location for the current conditions lookup
         conditions.setParameters("");
 
         //Download the data (asynchronous preferred), making sure to handle exceptions that may occur
         try {
             conditions.downloadData();
-        } catch (ApiException e) {
-            System.out.println(e.getMessage());
-        } catch (BadRequestException e) {
-            System.out.println(e.getMessage());
-        } catch (DataNotSetException e) {
-            System.out.println(e.getMessage());
-        } catch (AuthRequiredException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
