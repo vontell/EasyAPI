@@ -1,11 +1,12 @@
 package test;
 
 import org.json.JSONObject;
+import resources.exceptions.*;
 import weatherunderground.WUConditions;
 import weatherunderground.WeatherUnderground;
 
 /**
- * Class to test the operations and prove as an example for the WeatherUnderground class
+ * Class to test the operations and prove as an example for the WeatherUnderground API
  * @author Aaron Vontell
  * @version 0.2
  */
@@ -13,12 +14,35 @@ public class WeatherUndergroundExample {
 
     public static void main(String[] args){
 
-        final String API_KEY = "3435516581c40ab3";
+        // Set your API key and create an API Object
+        final String API_KEY = "45";
         WeatherUnderground weatherObject = new WeatherUnderground(API_KEY);
+
+        //Create a conditions object, to retrieve current conditions
         WUConditions conditions = weatherObject.getConditionsObject();
-        conditions.setParameters("Bristol_CT");
-        conditions.downloadData();
-        System.out.print(conditions.getRawData());
+        //Set the location for the current conditions lookup
+        conditions.setParameters("");
+
+        //Download the data (asynchronous preferred), making sure to handle exceptions that may occur
+        try {
+            conditions.downloadData();
+        } catch (ApiException e) {
+            System.out.println(e.getMessage());
+        } catch (BadRequestException e) {
+            System.out.println(e.getMessage());
+        } catch (DataNotSetException e) {
+            System.out.println(e.getMessage());
+        } catch (AuthRequiredException e) {
+            System.out.println(e.getMessage());
+        }
+
+        //Observe data on the current conditions
+        String desc = String.format(
+                "Today's conditions are %s, with a temperature of %s F, but feels like %s. There is a visibility of " +
+                "%s miles, at your observation location of %s.",
+                conditions.getWeather(), conditions.getTemperatureF(), conditions.getFeelsLike(),
+                conditions.getVisibilityMI(), conditions.getObsDescription());
+        System.out.println(desc);
 
     }
 

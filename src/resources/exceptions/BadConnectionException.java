@@ -8,7 +8,7 @@ package resources.exceptions;
  */
 public class BadConnectionException extends Exception{
 
-    private final String errorText = "Internet connection could not be made";
+    private String errorText = "Internet connection could not be made";
 
     /**
      * Create the exception with additional returned API messages
@@ -16,7 +16,7 @@ public class BadConnectionException extends Exception{
      */
     public BadConnectionException(String message) {
         super(message);
-        errorText.concat(": " + message);
+        errorText = errorText.concat(": " + message);
     }
 
     @Override

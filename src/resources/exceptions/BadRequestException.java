@@ -8,7 +8,7 @@ package resources.exceptions;
  */
 public class BadRequestException extends Exception{
 
-    private final String errorText = "The API request you tried to complete is not available or does not exist";
+    private String errorText = "The API request you tried to complete is not available or does not exist";
 
     /**
      * Create the exception with additional returned API messages
@@ -16,7 +16,7 @@ public class BadRequestException extends Exception{
      */
     public BadRequestException(String message) {
         super(message);
-        errorText.concat(": " + message);
+        errorText = errorText.concat(": " + message);
     }
 
     @Override

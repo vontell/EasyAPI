@@ -8,7 +8,7 @@ package resources.exceptions;
  */
 public class AuthRequiredException extends Exception{
 
-    private final String errorText = "The API request you tried to complete requires authentication";
+    private String errorText = "The API request you tried to complete requires authentication";
 
     /**
      * Create the exception with additional returned API messages
@@ -16,7 +16,7 @@ public class AuthRequiredException extends Exception{
      */
     public AuthRequiredException(String message) {
         super(message);
-        errorText.concat(": " + message);
+        errorText = errorText.concat(": " + message);
     }
 
     @Override

@@ -8,7 +8,7 @@ package resources.exceptions;
  */
 public class DataNotSetException extends Exception{
 
-    private final String errorText = "The API request you tried to complete requires data that was not given";
+    private String errorText = "The API request you tried to complete requires data that was not given or was given incorrectly";
 
     /**
      * Create the exception with additional returned API messages
@@ -16,7 +16,7 @@ public class DataNotSetException extends Exception{
      */
     public DataNotSetException(String message) {
         super(message);
-        errorText.concat(": " + message);
+        errorText = errorText.concat(": " + message);
     }
 
     @Override
