@@ -11,7 +11,7 @@ import resources.RestApiObject;
 public class WeatherUnderground implements RestApiObject{
 
     private String apiKey;
-    private String BASE_URL = "http://api.wunderground.com/api/";
+    protected String BASE_URL = "http://api.wunderground.com/api/";
     private String jsonContent;
     private String finalURL;
 
