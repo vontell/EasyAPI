@@ -1,4 +1,4 @@
-EasyAPI
+EasyAPI [![Build Status](https://travis-ci.org/vontell/EasyAPI.svg?branch=master)](https://travis-ci.org/vontell/EasyAPI)
 =======
 
 A Java-based library that parses RESTful APIs into useful objects.
