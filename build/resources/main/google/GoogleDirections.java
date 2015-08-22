@@ -12,7 +12,7 @@ import resources.Constructors;
  * @author Aaron Vontell
  * @version 0.2
  */
-public class GoogleDirections {
+public class GoogleDirections{
 
 	private String apiKey;
 	private String BASE_URL = "https://maps.googleapis.com/maps/api/directions/json?";

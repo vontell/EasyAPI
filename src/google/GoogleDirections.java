@@ -5,7 +5,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import resources.Constructors;
-import resources.RestApiObject;
 
 /**
  * A class that can gather information from the Google Directions API
@@ -13,7 +12,7 @@ import resources.RestApiObject;
  * @author Aaron Vontell
  * @version 0.2
  */
-public class GoogleDirections implements RestApiObject{
+public class GoogleDirections{
 
 	private String apiKey;
 	private String BASE_URL = "https://maps.googleapis.com/maps/api/directions/json?";
@@ -88,7 +87,6 @@ public class GoogleDirections implements RestApiObject{
 	 * Downloads the data from the server
 	 * This is the method that should be asynchronously performed
 	 */
-	@Override
 	public void downloadData(){
 
 		//Retrieve the JSON data, and also store the text for later use

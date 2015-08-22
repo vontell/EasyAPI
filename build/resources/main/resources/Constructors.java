@@ -67,6 +67,7 @@ public class Constructors {
 	public static JSONObject constructJSON(String URL){
 		
 		String content = "";
+		URL.replace(" ", "%20");
 
 		try{
 			
