@@ -16,7 +16,7 @@ public class AuthRequiredException extends Exception{
      */
     public AuthRequiredException(String message) {
         super(message);
-        errorText = errorText.concat(": " + message);
+        if(!message.equals("")){errorText = errorText.concat(": " + message);}
     }
 
     @Override

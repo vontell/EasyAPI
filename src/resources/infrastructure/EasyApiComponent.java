@@ -1,6 +1,5 @@
-package resources.interfaces;
+package resources.infrastructure;
 
-import org.json.JSONObject;
 import resources.exceptions.*;
 
 /**
@@ -12,7 +11,7 @@ import resources.exceptions.*;
  * @date 8/21/2015
  * @version 0.1
  */
-public interface EasyApiComponent<T> {
+public interface EasyApiComponent {
 
     void downloadData() throws ApiException, AuthRequiredException, BadConnectionException, BadRequestException, DataNotSetException;
     String getRawData();

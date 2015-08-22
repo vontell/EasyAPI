@@ -6,9 +6,10 @@ import resources.exceptions.ApiException;
 import resources.exceptions.AuthRequiredException;
 import resources.exceptions.BadRequestException;
 import resources.exceptions.DataNotSetException;
-import resources.interfaces.EasyApiComponent;
+import resources.infrastructure.EasyApiComponent;
 
 /**
+ * Implementation of current conditions in a given area
  * Returns the current temperature, weather condition, humidity, wind, 'feels like' temperature, barometric pressure,
  * and visibility of a location. More information at http://www.wunderground.com/weather/api/d/docs?d=data/conditions&MR=1
  * @author Aaron Vontell

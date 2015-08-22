@@ -16,7 +16,7 @@ public class DataNotSetException extends Exception{
      */
     public DataNotSetException(String message) {
         super(message);
-        errorText = errorText.concat(": " + message);
+        if(!message.equals("")){errorText = errorText.concat(": " + message);}
     }
 
     @Override

@@ -15,8 +15,9 @@ public class WeatherUndergroundExample {
     public static void main(String[] args){
 
         // Set your API key and create an API Object
-        final String API_KEY = "45";
+        final String API_KEY = "API_KEY";
         WeatherUnderground weatherObject = new WeatherUnderground(API_KEY);
+        System.out.println(weatherObject.possibleRequestsContains("poop"));
 
         //Create a conditions object, to retrieve current conditions
         WUConditions conditions = weatherObject.getConditionsObject();

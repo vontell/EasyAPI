@@ -1,6 +1,6 @@
 package weatherunderground;
 
-import resources.interfaces.EasyApiObject;
+import resources.infrastructure.EasyApiObject;
 
 /**
  * A class that can gather information from the Weather Underground API
@@ -9,32 +9,10 @@ import resources.interfaces.EasyApiObject;
  * @author Aaron Vontell
  * @version 0.1
  */
-public class WeatherUnderground implements EasyApiObject {
+public class WeatherUnderground extends EasyApiObject {
 
     private String apiKey;
     protected static String BASE_URL = "http://api.wunderground.com/api/";
-
-    /** List of possible data requests **/
-    private String[] possibleRequests = {
-
-            "alerts",
-            "almanac",
-            "astronomy",
-            "conditions",
-            "currenthurricane",
-            "forecast",
-            "forecast10day",
-            "geolookup",
-            "history",
-            "hourly",
-            "hourly10day",
-            "planner",
-            "rawtide",
-            "tide",
-            "webcams",
-            "yesterday"
-
-    };
 
     /**
      * Create a Weather Underground API object, which will provide factories to access the
@@ -52,24 +30,35 @@ public class WeatherUnderground implements EasyApiObject {
     }
 
     /**
-     * Find out if a request is available
-     * @param request The request to search for
-     * @return Does the request exist
-     */
-    @Override
-    public boolean possibleRequestsContains(String request){
-
-        return false;
-
-    }
-
-    /**
      * Retrieve the list of all requests available in this API
      * @return The list of requests
      */
     @Override
     public String[] getPossibleRequests(){
+
+        String[] possibleRequests = {
+
+                "alerts",
+                "almanac",
+                "astronomy",
+                "conditions",
+                "currenthurricane",
+                "forecast",
+                "forecast10day",
+                "geolookup",
+                "history",
+                "hourly",
+                "hourly10day",
+                "planner",
+                "rawtide",
+                "tide",
+                "webcams",
+                "yesterday"
+
+        };
+
         return possibleRequests;
+
     }
 
 }
