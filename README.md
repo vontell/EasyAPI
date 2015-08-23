@@ -4,6 +4,9 @@ EasyAPI [![Build Status](https://travis-ci.org/vontell/EasyAPI.svg?branch=master
 A Java-based library that parses RESTful APIs into useful objects.
 EasyAPI hopes to create easy RESTful API interaction by create a simple object from your API key, and then allowing full API interaction throught that object.
 
+##Diagram of the EasyAPI Thought Process:
+![EasyAPI chart](https://raw.githubusercontent.com/vontell/EasyAPI/master/EasyApi.png)
+
 ###Currently Supported APIs:
 - MapQuest Directions V0.2 (Partial)
 - Google Directions (Partial)
