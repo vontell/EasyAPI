@@ -5,7 +5,7 @@
     <title>EasyAPI by vontell</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
@@ -20,10 +20,16 @@
 
     <section class="main-content">
       <h1>
-<a id="easyapi" class="anchor" href="#easyapi" aria-hidden="true"><span class="octicon octicon-link"></span></a>EasyAPI</h1>
+<a id="easyapi-" class="anchor" href="#easyapi-" aria-hidden="true"><span class="octicon octicon-link"></span></a>EasyAPI <a href="https://travis-ci.org/vontell/EasyAPI"><img src="https://travis-ci.org/vontell/EasyAPI.svg?branch=master" alt="Build Status"></a>
+</h1>
 
 <p>A Java-based library that parses RESTful APIs into useful objects.
-EasyAPI hopes to create easy RESTful API interaction by create a simple object from your API key, and then allowing full API interaction throught that object.</p>
+EasyAPI hopes to create easy RESTful API interaction by creating a simple object from your API key, and then allowing full API interaction through that object.</p>
+
+<h2>
+<a id="diagram-of-the-easyapi-thought-process" class="anchor" href="#diagram-of-the-easyapi-thought-process" aria-hidden="true"><span class="octicon octicon-link"></span></a>Diagram of the EasyAPI Thought Process:</h2>
+
+<p><img src="https://raw.githubusercontent.com/vontell/EasyAPI/master/EasyApi.png" alt="EasyAPI chart"></p>
 
 <h3>
 <a id="currently-supported-apis" class="anchor" href="#currently-supported-apis" aria-hidden="true"><span class="octicon octicon-link"></span></a>Currently Supported APIs:</h3>
@@ -52,9 +58,17 @@ EasyAPI hopes to create easy RESTful API interaction by create a simple object f
 <hr>
 
 <h3>
-<a id="gradle-dependency" class="anchor" href="#gradle-dependency" aria-hidden="true"><span class="octicon octicon-link"></span></a>Gradle Dependency</h3>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h3>
 
-<p>Easily reference the library in your Gradle projects using this dependency in your module's <code>build.gradle</code> file:</p>
+<h4>
+<a id="project-import" class="anchor" href="#project-import" aria-hidden="true"><span class="octicon octicon-link"></span></a>Project Import</h4>
+
+<p>If you want use this library, download the project, import it into your workspace, and add the project as a library in your android project settings.</p>
+
+<h4>
+<a id="gradle-dependency" class="anchor" href="#gradle-dependency" aria-hidden="true"><span class="octicon octicon-link"></span></a>Gradle Dependency</h4>
+
+<p>Alternatively, easily reference the library in your Gradle projects using this dependency in your module's <code>build.gradle</code> file:</p>
 
 <div class="highlight highlight-Groovy"><pre>dependencies {
     compile <span class="pl-s"><span class="pl-pds">'</span>Coming Soon!<span class="pl-pds">'</span></span>
@@ -235,4 +249,3 @@ spotRet<span class="pl-k">.</span>downloadData();</pre></div>
   
   </body>
 </html>
-
