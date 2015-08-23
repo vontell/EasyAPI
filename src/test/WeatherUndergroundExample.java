@@ -14,7 +14,7 @@ public class WeatherUndergroundExample {
     public static void main(String[] args){
 
         // Set your API key and create an API Object
-        final String API_KEY = "3435516581c40ab3";
+        final String API_KEY = "API_KEY";
         WeatherUnderground weatherObject = new WeatherUnderground(API_KEY);
 
         WUAlerts alerts = weatherObject.createAlertsObject();
