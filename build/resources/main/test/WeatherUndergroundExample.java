@@ -1,9 +1,5 @@
 package test;
 
-import resources.exceptions.ApiException;
-import resources.exceptions.AuthRequiredException;
-import resources.exceptions.BadRequestException;
-import resources.exceptions.DataNotSetException;
 import weatherunderground.WUAlerts;
 import weatherunderground.WUConditions;
 import weatherunderground.WeatherUnderground;
@@ -18,7 +14,7 @@ public class WeatherUndergroundExample {
     public static void main(String[] args){
 
         // Set your API key and create an API Object
-        final String API_KEY = "3435516581c40ab3";
+        final String API_KEY = "API_KEY";
         WeatherUnderground weatherObject = new WeatherUnderground(API_KEY);
 
         WUAlerts alerts = weatherObject.createAlertsObject();
@@ -27,7 +23,7 @@ public class WeatherUndergroundExample {
             System.out.println(alerts.getRawData());
             System.out.println(alerts.getNumAlerts());
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
 
 

@@ -23,7 +23,7 @@ public class WeatherUndergroundExample {
             System.out.println(alerts.getRawData());
             System.out.println(alerts.getNumAlerts());
         } catch (Exception e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
 
 

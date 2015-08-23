@@ -10,3 +10,7 @@ sourceSets {
     test.java.srcDirs = ['tests/java']
     test.resources.srcDirs = ['tests/resources']
 }
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
