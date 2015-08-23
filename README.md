@@ -2,7 +2,7 @@ EasyAPI [![Build Status](https://travis-ci.org/vontell/EasyAPI.svg?branch=master
 =======
 
 A Java-based library that parses RESTful APIs into useful objects.
-EasyAPI hopes to create easy RESTful API interaction by create a simple object from your API key, and then allowing full API interaction through that object.
+EasyAPI hopes to create easy RESTful API interaction by creating a simple object from your API key, and then allowing full API interaction through that object.
 
 ##Diagram of the EasyAPI Thought Process:
 ![EasyAPI chart](https://raw.githubusercontent.com/vontell/EasyAPI/master/EasyApi.png)
