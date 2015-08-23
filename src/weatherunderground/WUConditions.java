@@ -101,7 +101,7 @@ public class WUConditions implements EasyApiComponent {
     }
 
     /**
-     * Set the location to find current conditions (city, state, address, etc)
+     * Set the location to find current conditions (city and state)
      * @param location Place to get conditions - preferred format: (STATE/City)
      * @return The WUConditions object with parameters set
      */
@@ -115,6 +115,7 @@ public class WUConditions implements EasyApiComponent {
     /**
      * Downloads and parses all data from the given information
      */
+    @Override
     public void downloadData() throws ApiException, BadRequestException, DataNotSetException, AuthRequiredException{
 
         try {

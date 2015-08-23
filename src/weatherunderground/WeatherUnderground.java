@@ -30,9 +30,14 @@ public class WeatherUnderground extends EasyApiObject {
      * Can be used to retrieve current conditions in a given location
      * @return WUConditions object for current weather information
      */
-    public WUConditions createConditionsObject(){
-        return new WUConditions(apiKey);
-    }
+    public WUConditions createConditionsObject(){ return new WUConditions(apiKey); }
+
+    /**
+     * Instantiates a new alerts object
+     * Can be used to retrieve current weather alerts for a given location
+     * @return WUAlerts object for current alerts information
+     */
+    public WUAlerts createAlertsObject(){ return new WUAlerts(apiKey); }
 
     /**
      * Retrieve the list of all requests available in this API

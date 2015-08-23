@@ -1,5 +1,6 @@
 package test;
 
+import weatherunderground.WUAlerts;
 import weatherunderground.WUConditions;
 import weatherunderground.WeatherUnderground;
 
@@ -13,28 +14,18 @@ public class WeatherUndergroundExample {
     public static void main(String[] args){
 
         // Set your API key and create an API Object
-        final String API_KEY = "API_KEY";
+        final String API_KEY = "3435516581c40ab3";
         WeatherUnderground weatherObject = new WeatherUnderground(API_KEY);
 
-        //Create a conditions object, to retrieve current conditions
-        WUConditions conditions = weatherObject.createConditionsObject();
-        //Set the location for the current conditions lookup
-        conditions.setParameters("");
-
-        //Download the data (asynchronous preferred), making sure to handle exceptions that may occur
+        WUAlerts alerts = weatherObject.createAlertsObject();
         try {
-            conditions.downloadData();
+            alerts.setParameters("CT/Bristol").downloadData();
+            System.out.println(alerts.getRawData());
+            System.out.println(alerts.getNumAlerts());
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            e.getMessage();
         }
 
-        //Observe data on the current conditions
-        String desc = String.format(
-                "Today's conditions are %s, with a temperature of %s F, but feels like %s. There is a visibility of " +
-                "%s miles, at your observation location of %s.",
-                conditions.getWeather(), conditions.getTemperatureF(), conditions.getFeelsLike(),
-                conditions.getVisibilityMI(), conditions.getObsDescription());
-        System.out.println(desc);
 
     }
 
