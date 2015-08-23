@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.httpcomponents:httpclient-cache:4.5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient-cache/4.5/dd8704e3cf3e56c4fc135d5a5e02970d521ccf80/httpclient-cache-4.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient-cache/4.5/4a554ffb634aba88281af26bd8ada0890df487cd/httpclient-cache-4.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
