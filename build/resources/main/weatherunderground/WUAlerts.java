@@ -35,10 +35,8 @@ public class WUAlerts implements EasyApiComponent{
     private String[] significance;
     private int numAlerts;
 
-
-
     /**
-     * Create this current conditions object with a given API key
+     * Create this current alerts object with a given API key
      * @param apiKey The valid API key to gain access to the REST API
      */
     protected WUAlerts(String apiKey) {

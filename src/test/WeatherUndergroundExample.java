@@ -1,6 +1,7 @@
 package test;
 
 import weatherunderground.WUAlerts;
+import weatherunderground.WUAlmanac;
 import weatherunderground.WUConditions;
 import weatherunderground.WeatherUnderground;
 
@@ -17,11 +18,15 @@ public class WeatherUndergroundExample {
         final String API_KEY = "API_KEY";
         WeatherUnderground weatherObject = new WeatherUnderground(API_KEY);
 
-        WUAlerts alerts = weatherObject.createAlertsObject();
+        WUAlmanac almanac = weatherObject.createAlmanacObject();
         try {
-            alerts.setParameters("CT/Bristol").downloadData();
-            System.out.println(alerts.getRawData());
-            System.out.println(alerts.getNumAlerts());
+            almanac.setParameters("CT/Bristol").downloadData();
+            System.out.println("Location: " + almanac.getObservationLocation());
+            System.out.println("High Record: " + almanac.getRecordHighF() + " F");
+            System.out.println("Low Record: " + almanac.getRecordLowF() + " F");
+            System.out.println("Record High Year: " + almanac.getRecordHighYear() + " F");
+            System.out.println("Record Low Year: " + almanac.getRecordLowYear() + " F");
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

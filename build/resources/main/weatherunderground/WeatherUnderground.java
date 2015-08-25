@@ -40,6 +40,13 @@ public class WeatherUnderground extends EasyApiObject {
     public WUAlerts createAlertsObject(){ return new WUAlerts(apiKey); }
 
     /**
+     * Instantiates a new almanac object
+     * Can be used to retrieve record high and low temperatures for a given location
+     * @return WUAlmanac object for record temperatures information
+     */
+    public WUAlmanac createAlmanacObject(){ return new WUAlmanac(apiKey); }
+
+    /**
      * Retrieve the list of all requests available in this API
      * @return The list of requests
      */
