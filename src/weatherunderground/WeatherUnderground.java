@@ -47,6 +47,13 @@ public class WeatherUnderground extends EasyApiObject {
     public WUAlmanac createAlmanacObject(){ return new WUAlmanac(apiKey); }
 
     /**
+     * Instantiates a new astronomy object
+     * Can be used to retrieve sunset, sunrise, and moon information for a given location
+     * @return WUAstronomy object for planet information
+     */
+    public WUAstronomy createAstronomyObject(){ return new WUAstronomy(apiKey); }
+
+    /**
      * Retrieve the list of all requests available in this API
      * @return The list of requests
      */

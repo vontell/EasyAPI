@@ -1,9 +1,6 @@
 package test;
 
-import weatherunderground.WUAlerts;
-import weatherunderground.WUAlmanac;
-import weatherunderground.WUConditions;
-import weatherunderground.WeatherUnderground;
+import weatherunderground.*;
 
 /**
  * Class to test the operations and prove as an example for the WeatherUnderground API
@@ -18,14 +15,14 @@ public class WeatherUndergroundExample {
         final String API_KEY = "API_KEY";
         WeatherUnderground weatherObject = new WeatherUnderground(API_KEY);
 
-        WUAlmanac almanac = weatherObject.createAlmanacObject();
+        WUAstronomy astronomy = weatherObject.createAstronomyObject();
         try {
-            almanac.setParameters("CT/Bristol").downloadData();
-            System.out.println("Location: " + almanac.getObservationLocation());
-            System.out.println("High Record: " + almanac.getRecordHighF() + " F");
-            System.out.println("Low Record: " + almanac.getRecordLowF() + " F");
-            System.out.println("Record High Year: " + almanac.getRecordHighYear() + " F");
-            System.out.println("Record Low Year: " + almanac.getRecordLowYear() + " F");
+            astronomy.setParameters("CT/Bristol").downloadData();
+            System.out.println("Percent Illuminated: " + astronomy.getPercentIlluminated());
+            System.out.println("Moon Cycle Progress: " + astronomy.getAgeOfMoon());
+            System.out.println("Request Time: " + astronomy.getRequestTimeHour() + ":" + astronomy.getRequestTimeMinute());
+            System.out.println("Sunrise Time: " + astronomy.getSunriseHour() + ":" + astronomy.getSunriseMinute());
+            System.out.println("Sunset Time: " + astronomy.getSunsetHour() + ":" + astronomy.getSunsetMinute());
 
         } catch (Exception e) {
             System.out.println(e.getMessage());

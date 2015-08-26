@@ -1,6 +1,5 @@
 package weatherunderground;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 import resources.Constructors;
 import resources.exceptions.ApiException;
@@ -36,7 +35,7 @@ public class WUAlmanac implements EasyApiComponent{
     private String recordLowYear;
 
     /**
-     * Create this almanc object with a given API key
+     * Create this almanac object with a given API key
      * @param apiKey The valid API key to gain access to the REST API
      */
     protected WUAlmanac(String apiKey) {
