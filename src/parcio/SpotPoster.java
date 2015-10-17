@@ -76,7 +76,8 @@ public class SpotPoster {
 	 * @throws IOException 
 	 */
 	public void postData() throws IOException{
-		responseCode = Constructors.postData(finalURL, jObj.toString());
+		//responseCode = Constructors.postData(finalURL, jObj.toString());
+		responseCode = 0; //TODO: FIX!
 		if(responseCode/100 == 2){
 			wasSuccess = true;
 		}

@@ -85,7 +85,7 @@ public class Constructors {
 			
 		} catch(Exception e){
 			System.out.println(content);
-			System.out.println("Error occured: " + e);
+			System.out.println("Error occurred: " + e);
 			return new JSONObject();
 		}
 		
@@ -116,19 +116,19 @@ public class Constructors {
 			
 		} catch(Exception e){
 			System.out.println(content);
-			System.out.println("Error occured: " + e);
+			System.out.println("Error occurred: " + e);
 			return new JSONArray();
 		}
 		
 	}
-	
-	/**
+
+	/*
 	 * Posts data to the specified URL
 	 * @param urlt The URL to post information to
 	 * @param data The JSON data to post
 	 * @return The response code
 	 * @throws IOException
-	 */
+	 *
 	public static int postData(String urlt, String data) throws IOException{
 		
 		HttpClient httpClient = new DefaultHttpClient();
@@ -155,6 +155,35 @@ public class Constructors {
 	        httpClient.getConnectionManager().shutdown();
 	    }
 		
+	}//*/
+
+	public static JSONObject postData(String url, String data){
+
+		HttpClient httpClient = new DefaultHttpClient();
+
+		try {
+
+			HttpPost request = new HttpPost(url);
+			StringEntity params = new StringEntity(data);
+			params.setContentType(new BasicHeader(HTTP.CONTENT_TYPE,"application/json"));
+			request.setEntity(params);
+			request.setHeader("Content-Type", "application/json");
+			//for(Header h : request.getAllHeaders()){System.out.println(h);}
+			//System.out.println(data);
+			HttpResponse response = httpClient.execute(request);
+			//for(Header h : response.getAllHeaders()){System.out.println(h);}
+			//System.out.println(response.toString());
+			BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
+			String json = reader.readLine();
+			return new JSONObject(json);
+		}catch (Exception ex) {
+			ex.printStackTrace();
+			System.out.println(ex.getMessage());
+			return new JSONObject("{error: There was an error logging in!");
+		} finally {
+			httpClient.getConnectionManager().shutdown();
+		}
+
 	}
 	
 	/**
