@@ -54,7 +54,7 @@ public class SpotGetter {
 	 * Finds the spots within the radius of the given coordinates, and
 	 * returns the spot indeces
 	 * @param lati The latitude to search near
-	 * @param long The longitude to search near
+	 * @param longi The longitude to search near
 	 * @param radius The radius to search within (in degrees?)
 	 * @return The corresponding indeces of the spots that are nearby
 	 */
