@@ -63,7 +63,7 @@ public class Constructors {
 	 * @param URL The URL to connect to
 	 * @return A JSONObject containing the HTTP GET results
 	 */
-	public static JSONObject constructJSON(String URL){
+	public static JSONObject constructJSON(String URL, String authorization){
 		
 		String content = "";
 		URL.replace(" ", "%20");
@@ -73,6 +73,10 @@ public class Constructors {
 			URL Url = new URL(URL);
 			URLConnection conn = Url.openConnection();
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+
+			if(authorization != null){
+				conn.setRequestProperty("Authorization", "Bearer " + authorization);
+			}
 			
 			String line;
 			while ((line = bufferedReader.readLine()) != null){
@@ -95,7 +99,7 @@ public class Constructors {
 	 * @param URL The URL to connect to
 	 * @return A JSONArray containing the HTTP GET results
 	 */
-	public static JSONArray constructJSONArray(String URL){
+	public static JSONArray constructJSONArray(String URL, String authorization){
 		
 		String content = "";
 
@@ -104,6 +108,10 @@ public class Constructors {
 			URL Url = new URL(URL);
 			URLConnection conn = Url.openConnection();
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+
+			if(authorization != null){
+				conn.setRequestProperty("Authorization", "Bearer " + authorization);
+			}
 			
 			String line;
 			while ((line = bufferedReader.readLine()) != null){
@@ -121,7 +129,7 @@ public class Constructors {
 		
 	}
 
-	public static JSONObject postData(String url, String data){
+	public static JSONObject postData(String url, String data, String authorization){
 
 		HttpClient httpClient = new DefaultHttpClient();
 
@@ -131,6 +139,9 @@ public class Constructors {
 			params.setContentType(new BasicHeader(HTTP.CONTENT_TYPE,"application/json"));
 			request.setEntity(params);
 			request.setHeader("Content-Type", "application/json");
+			if(authorization != null){
+				request.setHeader("Authorization", "Bearer " + authorization);
+			}
 			//for(Header h : request.getAllHeaders()){System.out.println(h);}
 			//System.out.println(data);
 			HttpResponse response = httpClient.execute(request);
