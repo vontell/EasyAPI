@@ -481,5 +481,69 @@ public class Constructors {
 		}
 
 	}
+
+	public static JSONObject putData(final String url, final HashMap<String, String> data, String authorization) throws IOException{
+
+		HttpURLConnection conn = null;
+
+		try {
+
+			// Construct the POST
+			URL finalUrl = new URL(url);
+			conn = (HttpURLConnection) finalUrl.openConnection();
+			conn.setDoOutput(true);
+			conn.setDoInput(true);
+			conn.setInstanceFollowRedirects(false);
+			conn.setUseCaches(false);
+			conn.setRequestMethod("PUT");
+
+			String postData = "";
+			for(String key : data.keySet()){
+				postData += key + "=" + data.get(key) + "&";
+			}
+			postData = postData.substring(0, postData.length() - 1);
+
+			conn.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
+			conn.setRequestProperty("Content-Length", "" + Integer.toString(postData.getBytes().length));
+			conn.setRequestProperty("charset","utf-8");
+
+			if(authorization != null){
+				conn.setRequestProperty("Authorization", "Bearer " + authorization);
+			}
+
+			// Begin writing to the server
+			DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
+			wr.writeBytes(postData);
+			wr.flush();
+			wr.close();
+
+			//Log.e("WRITE", "");
+
+			//Log.e("SERVER:" , "" + conn.getResponseCode());
+
+			// Read the response
+			BufferedReader in = new BufferedReader(
+					new InputStreamReader(conn.getInputStream()));
+			String inputLine;
+			StringBuffer response = new StringBuffer();
+			while ((inputLine = in.readLine()) != null) {
+				response.append(inputLine);
+			}
+			in.close();
+
+			//Log.e("READ", "");
+
+			// Return the result
+			return new JSONObject(response.toString());
+		}
+		catch (Exception e) {
+			return new JSONObject();
+		} finally {
+			if(conn != null){
+				conn.disconnect();
+			}
+		}
+
+	}
 	
 }
