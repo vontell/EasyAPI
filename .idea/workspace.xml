@@ -2,44 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="01ce8ea0-baae-4232-b57e-407d7230803d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/parcio/SpotGetter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/parcio/SpotPoster.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/parcio/UserAuthenticator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/parcio/UserGetter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/parcio/UserPoster.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/test/ParcioSpotExample.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/resources/main/test/ParcioUserExample.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/appalounge/APPAAnnounce.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/appalounge/APPAChat.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/appalounge/APPAProfile.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/appalounge/AppaLogin.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/appalounge/AppaLounge.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/parcio/SpotGetter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/parcio/SpotPoster.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/parcio/UserAuthenticator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/parcio/UserGetter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/parcio/UserPoster.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/resources/ConstructorsV2.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/AppaLoungeExample.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/ParcioSpotExample.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/ParcioUserExample.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_httpcomponents_httpclient_4_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_httpcomponents_httpclient_4_5_2.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_httpcomponents_httpclient_cache_4_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_httpcomponents_httpclient_cache_4_5_2.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_httpcomponents_httpcore_4_4_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_httpcomponents_httpcore_4_4_4.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/1.12/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/1.12/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/1.12/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/1.12/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/1.12/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/1.12/taskArtifacts/outputFileStates.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/1.12/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/1.12/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/google/GoogleDirections.java" afterPath="$PROJECT_DIR$/build/resources/main/google/GoogleDirections.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/mapquest/OpenDirection.java" afterPath="$PROJECT_DIR$/build/resources/main/mapquest/OpenDirection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/resources/Constructors.java" afterPath="$PROJECT_DIR$/build/resources/main/resources/Constructors.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/stackexchange/StackExchange.java" afterPath="$PROJECT_DIR$/build/resources/main/stackexchange/StackExchange.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/weatherunderground/WUAlerts.java" afterPath="$PROJECT_DIR$/build/resources/main/weatherunderground/WUAlerts.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/weatherunderground/WUAlmanac.java" afterPath="$PROJECT_DIR$/build/resources/main/weatherunderground/WUAlmanac.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/weatherunderground/WUAstronomy.java" afterPath="$PROJECT_DIR$/build/resources/main/weatherunderground/WUAstronomy.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/weatherunderground/WUConditions.java" afterPath="$PROJECT_DIR$/build/resources/main/weatherunderground/WUConditions.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/google/GoogleDirections.java" afterPath="$PROJECT_DIR$/src/google/GoogleDirections.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mapquest/OpenDirection.java" afterPath="$PROJECT_DIR$/src/mapquest/OpenDirection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/resources/Constructors.java" afterPath="$PROJECT_DIR$/src/resources/Constructors.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/stackexchange/StackExchange.java" afterPath="$PROJECT_DIR$/src/stackexchange/StackExchange.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/weatherunderground/WUAlerts.java" afterPath="$PROJECT_DIR$/src/weatherunderground/WUAlerts.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/weatherunderground/WUAlmanac.java" afterPath="$PROJECT_DIR$/src/weatherunderground/WUAlmanac.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/weatherunderground/WUAstronomy.java" afterPath="$PROJECT_DIR$/src/weatherunderground/WUAstronomy.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/weatherunderground/WUConditions.java" afterPath="$PROJECT_DIR$/src/weatherunderground/WUConditions.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EasyAPI.iml" afterPath="$PROJECT_DIR$/EasyAPI.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
     </list>
     <ignored path="EasyAPI.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -79,12 +51,54 @@
                 <option name="myItemId" value="EasyAPI" />
                 <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
               </PATH_ELEMENT>
+            </PATH>
+            <PATH>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="EasyAPI" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
+              </PATH_ELEMENT>
               <PATH_ELEMENT>
                 <option name="myItemId" value="Tasks" />
                 <option name="myItemType" value="com.intellij.openapi.externalSystem.view.TasksNode" />
               </PATH_ELEMENT>
               <PATH_ELEMENT>
                 <option name="myItemId" value="other" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.TasksNode$1" />
+              </PATH_ELEMENT>
+            </PATH>
+            <PATH>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="EasyAPI" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="Tasks" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.TasksNode" />
+              </PATH_ELEMENT>
+            </PATH>
+            <PATH>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ExternalProjectsStructure$RootNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="EasyAPI" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.ProjectNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="Tasks" />
+                <option name="myItemType" value="com.intellij.openapi.externalSystem.view.TasksNode" />
+              </PATH_ELEMENT>
+              <PATH_ELEMENT>
+                <option name="myItemId" value="build" />
                 <option name="myItemType" value="com.intellij.openapi.externalSystem.view.TasksNode$1" />
               </PATH_ELEMENT>
             </PATH>
@@ -110,91 +124,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConstructorsExample.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/ConstructorsExample.java">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WUAlmanac.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/weatherunderground/WUAlmanac.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="61" column="13" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GoogleDirections.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/google/GoogleDirections.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="193" column="33" selection-start-line="193" selection-start-column="33" selection-end-line="193" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GoogleDirectionsExample.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/GoogleDirectionsExample.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StackExchangeExample.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/StackExchangeExample.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WeatherUndergroundExample.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/WeatherUndergroundExample.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.302974">
-              <caret line="15" column="75" selection-start-line="15" selection-start-column="75" selection-end-line="15" selection-end-column="75" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StackExchange.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/stackexchange/StackExchange.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="31" column="50" selection-start-line="31" selection-start-column="50" selection-end-line="31" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WUAstronomy.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/weatherunderground/WUAstronomy.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WUAlerts.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/weatherunderground/WUAlerts.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+            <state vertical-scroll-proportion="-0.0873606">
+              <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -329,7 +263,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="1453655209000" />
+        <entry key="$PROJECT_DIR$" value="1468786136000" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -344,13 +278,13 @@
                       <ExternalModuleBuildClasspathPojo>
                         <option name="entries">
                           <list>
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.5/a1e6cbb3cc2c5f210dd1310ff9fcb2c09c0d1438/httpclient-4.5.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient-cache/4.5/dd8704e3cf3e56c4fc135d5a5e02970d521ccf80/httpclient-cache-4.5.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.4.1/f5aa318bda4c6c8d688c9d00b90681dcd82ce636/httpcore-4.4.1.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpmime/4.5/7bdb321e86724b16af6134a0fd22fec649eda971/httpmime-4.5.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.5.2/733db77aa8d9b2d68015189df76ab06304406e50/httpclient-4.5.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient-cache/4.5.2/bd50ea83908dbf2f387a333216e66d2f0c5079bd/httpclient-cache-4.5.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.4.5/e7501a1b34325abb00d17dde96150604a0658b54/httpcore-4.4.5.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpmime/4.5.2/22b4c53dd9b6761024258de8f9240c3dce6ea368/httpmime-4.5.2.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/fluent-hc/4.5.2/7bfdfa49de6d720ad3c8cedb6a5238eec564dfed/fluent-hc-4.5.2.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.10/4b95f4897fa13f2cd904aee711aeafc0c5295cd8/commons-codec-1.10.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/4bfc12adfe4842bf07b657f0369c4cb522955686/commons-logging-1.2.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/fluent-hc/4.5/6b83009428e935d37c2312b780de64b67f9131a5/fluent-hc-4.5.jar" />
                           </list>
                         </option>
                         <option name="path" value="$PROJECT_DIR$" />
@@ -479,7 +413,6 @@
         <option value="$PROJECT_DIR$/src/parcio/SpotPoster.java" />
         <option value="$PROJECT_DIR$/src/appalounge/AppaLogin.java" />
         <option value="$PROJECT_DIR$/src/test/AppaLoungeExample.java" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/resources/ConstructorsV2.java" />
         <option value="$PROJECT_DIR$/src/resources/Constructors.java" />
         <option value="$PROJECT_DIR$/src/mapquest/OpenDirection.java" />
@@ -490,6 +423,7 @@
         <option value="$PROJECT_DIR$/src/parcio/SpotGetter.java" />
         <option value="$PROJECT_DIR$/src/weatherunderground/WUAlmanac.java" />
         <option value="$PROJECT_DIR$/src/google/GoogleDirections.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
       </list>
     </option>
   </component>
@@ -743,18 +677,7 @@
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
   </component>
-  <component name="RunManager" selected="Application.WeatherUndergroundExample">
-    <configuration default="false" name="build (2)" type="GroovyScriptRunConfiguration" factoryName="Groovy" temporary="true">
-      <module name="EasyAPI" />
-      <setting name="path" value="file://$PROJECT_DIR$/build.gradle" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workDir" value="file://$PROJECT_DIR$" />
-      <setting name="debug" value="false" />
-      <method>
-        <option name="Make" enabled="false" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Gradle.EasyAPI [build]">
     <configuration default="false" name="build (3)" type="GroovyScriptRunConfiguration" factoryName="Groovy" temporary="true">
       <module name="EasyAPI" />
       <setting name="path" value="file://$PROJECT_DIR$/build.gradle" />
@@ -824,6 +747,24 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="EasyAPI" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="EasyAPI [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
       <method />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -1105,19 +1046,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Groovy.build (2)" />
-      <item index="1" class="java.lang.String" itemvalue="Groovy.build (3)" />
-      <item index="2" class="java.lang.String" itemvalue="Application.ConstructorsExample" />
-      <item index="3" class="java.lang.String" itemvalue="Application.GoogleDirectionsExample" />
-      <item index="4" class="java.lang.String" itemvalue="Application.WeatherUndergroundExample" />
+      <item index="0" class="java.lang.String" itemvalue="Groovy.build (3)" />
+      <item index="1" class="java.lang.String" itemvalue="Application.ConstructorsExample" />
+      <item index="2" class="java.lang.String" itemvalue="Application.GoogleDirectionsExample" />
+      <item index="3" class="java.lang.String" itemvalue="Application.WeatherUndergroundExample" />
+      <item index="4" class="java.lang.String" itemvalue="Gradle.EasyAPI [build]" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.WeatherUndergroundExample" />
-        <item index="1" class="java.lang.String" itemvalue="Application.GoogleDirectionsExample" />
-        <item index="2" class="java.lang.String" itemvalue="Application.ConstructorsExample" />
-        <item index="3" class="java.lang.String" itemvalue="Groovy.build (3)" />
-        <item index="4" class="java.lang.String" itemvalue="Groovy.build (2)" />
+        <item index="0" class="java.lang.String" itemvalue="Gradle.EasyAPI [build]" />
+        <item index="1" class="java.lang.String" itemvalue="Application.WeatherUndergroundExample" />
+        <item index="2" class="java.lang.String" itemvalue="Application.GoogleDirectionsExample" />
+        <item index="3" class="java.lang.String" itemvalue="Application.ConstructorsExample" />
+        <item index="4" class="java.lang.String" itemvalue="Groovy.build (3)" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -1165,7 +1106,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1178,7 +1119,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26616916" sideWeight="0.49713877" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20457797" sideWeight="0.5223325" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20457797" sideWeight="0.5223325" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23676682" sideWeight="0.5049628" order="5" side_tool="false" content_ui="tabs" />
@@ -1402,14 +1343,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5565553">
-          <caret line="42" column="11" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/OpenDirectionExample.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1514,6 +1447,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.302974">
           <caret line="15" column="75" selection-start-line="15" selection-start-column="75" selection-end-line="15" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0873606">
+          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
           <folding />
         </state>
       </provider>
