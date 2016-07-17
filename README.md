@@ -31,9 +31,19 @@ If you want use this library, download the project, import it into your workspac
 ####Gradle Dependency
 Alternatively, easily reference the library in your Gradle projects using this dependency in your module's `build.gradle` file:
 
-```Groovy
+1. Add the JitPack repository to your build file. Add it in your root build.gradle at the end of repositories:
+```groovy
+allprojects {
+    repositories {
+        ...
+        maven { url "https://jitpack.io" }
+    }
+}
+```
+2. Add the dependency
+```groovy
 dependencies {
-    compile 'Coming Soon!'
+        compile 'com.github.vontell:EasyAPI:V0.2'
 }
 ```
 
