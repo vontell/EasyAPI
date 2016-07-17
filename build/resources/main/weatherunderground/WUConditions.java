@@ -120,7 +120,7 @@ public class WUConditions implements EasyApiComponent {
 
         try {
 
-            result = Constructors.constructJSON(url);
+            result = Constructors.getData(url, null);
             JSONObject jObj = new JSONObject(result.toString());
             termsUrl = jObj.getJSONObject("response").getString("termsofService");
             jObj = jObj.getJSONObject("current_observation");

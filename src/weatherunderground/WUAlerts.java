@@ -64,7 +64,7 @@ public class WUAlerts implements EasyApiComponent{
     public void downloadData() throws ApiException, BadRequestException, DataNotSetException, AuthRequiredException {
 
         try {
-            result = Constructors.constructJSON(url);
+            result = Constructors.getData(url, null);
             JSONObject jObj = new JSONObject(result.toString());
             if(jObj.getJSONArray("alerts").length() == 0){
                 numAlerts     = 0;

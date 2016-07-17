@@ -1,33 +1,422 @@
 package resources;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.Base64;
-
-import org.apache.http.Header;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.protocol.HTTP;
-import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.HashMap;
 
 /**
  * Class that provides static variables for conducting
  * HTTP calls and creating its required components
  * @author Aaron Vontell
- * @version 0.2
+ * @version 0.4
  */
 public class Constructors {
-	
+
+	/**
+	 * Creates and executes a HTTP POST request using the
+	 * application/x-www-form-urlencoded content type
+	 * @param url The url to the API endpoint you are hitting
+	 * @param data The data to send as a mapping of key - value pairs
+	 * @param authorization The bearer token for authenticated access
+	 * @return The response from the server as a JSON Object
+	 */
+	public static JSONObject postData(final String url, final HashMap<String, String> data, String authorization){
+
+		HttpURLConnection conn = null;
+
+		try {
+
+			// Construct the POST
+			URL finalUrl = new URL(url);
+			conn = (HttpURLConnection) finalUrl.openConnection();
+			conn.setDoOutput(true);
+			conn.setDoInput(true);
+			conn.setInstanceFollowRedirects(false);
+			conn.setUseCaches(false);
+			conn.setRequestMethod("POST");
+
+			String postData = "";
+			for(String key : data.keySet()){
+				postData += key + "=" + data.get(key) + "&";
+			}
+			postData = postData.substring(0, postData.length() - 1);
+
+			conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+			conn.setRequestProperty("Content-Length", "" + Integer.toString(postData.getBytes().length));
+			conn.setRequestProperty("charset","utf-8");
+
+			if(authorization != null){
+				conn.setRequestProperty("Authorization", authorization);
+			}
+
+			// Begin writing to the server
+			DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
+			wr.writeBytes(postData);
+			wr.flush();
+			wr.close();
+
+			// Read the response
+			BufferedReader in = new BufferedReader(
+					new InputStreamReader(conn.getInputStream()));
+			String inputLine;
+			StringBuffer response = new StringBuffer();
+			while ((inputLine = in.readLine()) != null) {
+				response.append(inputLine);
+			}
+			in.close();
+
+			// Return the result
+			return new JSONObject(response.toString());
+		}
+		catch (Exception e) {
+			return new JSONObject();
+		} finally {
+			if(conn != null){
+				conn.disconnect();
+			}
+		}
+
+	}
+
+	/**
+	 * Creates and executes a HTTP POST request using the
+	 * application/json content type
+	 * @param url The url to the API endpoint you are hitting
+	 * @param data The data to send as a JSON Object
+	 * @param authorization The bearer token for authenticated access
+	 * @return The response from the server as a JSON Object
+	 */
+	public static JSONObject postData(final String url, final JSONObject data, String authorization){
+
+		HttpURLConnection conn = null;
+
+		try {
+
+			// Construct the POST
+			URL finalUrl = new URL(url);
+			conn = (HttpURLConnection) finalUrl.openConnection();
+			conn.setRequestMethod("POST");
+
+			String postData = data.toString();
+
+			conn.setRequestProperty("Content-Type","application/json");
+			conn.setRequestProperty("Content-Length", "" + Integer.toString(postData.getBytes().length));
+
+			if(authorization != null){
+				conn.setRequestProperty("Authorization", "Bearer " + authorization);
+			}
+
+			// Begin writing to the server
+			DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
+			wr.writeBytes(postData);
+			wr.flush();
+			wr.close();
+
+			// Read the response
+			BufferedReader in = new BufferedReader(
+					new InputStreamReader(conn.getInputStream()));
+			String inputLine;
+			StringBuffer response = new StringBuffer();
+			while ((inputLine = in.readLine()) != null) {
+				response.append(inputLine);
+			}
+			in.close();
+
+			// Return the result
+			return new JSONObject(response.toString());
+		}
+		catch (Exception e) {
+			return new JSONObject();
+		} finally {
+			if(conn != null){
+				conn.disconnect();
+			}
+		}
+
+	}
+
+	/**
+	 * Creates and executes a HTTP POST request using the
+	 * application/json content type
+	 * @param url The url to the API endpoint you are hitting
+	 * @param data The data to send as a JSON Object
+	 * @param authorization The bearer token for authenticated access
+	 * @param xToken the token to put into X-Device-Token
+	 * @return The response from the server as a JSON Object
+	 */
+	public static JSONObject postData(final String url, final JSONObject data,
+									  final String authorization, final String xToken){
+
+		HttpURLConnection conn = null;
+
+		try {
+
+			// Construct the POST
+			URL finalUrl = new URL(url);
+			conn = (HttpURLConnection) finalUrl.openConnection();
+			conn.setRequestMethod("POST");
+
+			String postData = data.toString();
+
+			conn.setRequestProperty("Content-Type","application/json");
+			conn.setRequestProperty("Content-Length", "" + Integer.toString(postData.getBytes().length));
+
+			if(authorization != null){
+				conn.setRequestProperty("Authorization", "Bearer " + authorization);
+			}
+			if(xToken != null) {
+				conn.setRequestProperty("X-Device-Token", xToken);
+			}
+
+			//Log.e("Whole Thing:", conn.getRequestProperties().toString());
+
+			// Begin writing to the server
+			DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
+			wr.writeBytes(postData);
+			wr.flush();
+			wr.close();
+
+			boolean goodCall = conn.getResponseCode() == 204;
+
+			// Read the response
+			BufferedReader in = new BufferedReader(
+					new InputStreamReader(conn.getInputStream()));
+			String inputLine;
+			StringBuffer response = new StringBuffer();
+			while ((inputLine = in.readLine()) != null) {
+				response.append(inputLine);
+			}
+			in.close();
+
+			// Return the result
+			JSONObject jsonResult = new JSONObject(response.toString());
+			//Log.e("Good call", "" + goodCall);
+			if(goodCall) {
+				//Log.d("INSIDE", "um it is 204");
+				jsonResult.put("success", true);
+			}
+			return jsonResult;
+		}
+		catch (Exception e) {
+			return new JSONObject();
+		} finally {
+			if(conn != null){
+				conn.disconnect();
+			}
+		}
+
+	}
+
+	/**
+	 * Creates and executes a HTTP PUT request using the
+	 * application/json content type
+	 * @param url The url to the API endpoint you are hitting
+	 * @param data The data to send as a JSON Object
+	 * @param authorization The bearer token for authenticated access
+	 * @param xToken the token to put into X-Device-Token
+	 * @return The response from the server as a JSON Object
+	 */
+	public static JSONObject putData(final String url, final JSONObject data,
+									 final String authorization, final String xToken){
+
+		HttpURLConnection conn = null;
+
+		try {
+
+			// Construct the POST
+			URL finalUrl = new URL(url);
+			conn = (HttpURLConnection) finalUrl.openConnection();
+			conn.setRequestMethod("PUT");
+
+			String postData = data.toString();
+
+			conn.setRequestProperty("Content-Type","application/json");
+			conn.setRequestProperty("Content-Length", "" + Integer.toString(postData.getBytes().length));
+
+			if(authorization != null){
+				conn.setRequestProperty("Authorization", "Bearer " + authorization);
+			}
+			if(xToken != null) {
+				conn.setRequestProperty("X-Device-Token", xToken);
+			}
+
+			//Log.e("Whole Thing:", conn.getRequestProperties().toString());
+
+			// Begin writing to the server
+			DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
+			wr.writeBytes(postData);
+			wr.flush();
+			wr.close();
+
+			boolean goodCall = conn.getResponseCode() == 204;
+
+			// Read the response
+			BufferedReader in = new BufferedReader(
+					new InputStreamReader(conn.getInputStream()));
+			String inputLine;
+			StringBuffer response = new StringBuffer();
+			while ((inputLine = in.readLine()) != null) {
+				response.append(inputLine);
+			}
+			in.close();
+
+			// Return the result
+			JSONObject jsonResult = new JSONObject(response.toString());
+			//Log.e("Good call", "" + goodCall);
+			if(goodCall) {
+				//Log.d("INSIDE", "um it is 204");
+				jsonResult.put("success", true);
+			}
+			return jsonResult;
+		}
+		catch (Exception e) {
+			return new JSONObject();
+		} finally {
+			if(conn != null){
+				conn.disconnect();
+			}
+		}
+
+	}
+
+	/**
+	 * Creates and executes an HTTP GET request using
+	 * the HttpURLConnection class.
+	 * @param url The url to the API endpoint you are hitting
+	 * @param authorization The response from the server as a JSON Object
+	 * @return The response from the server as a JSON Object
+	 */
+	public static JSONObject getData(final String url, String authorization){
+
+		HttpURLConnection conn = null;
+
+		// Construct the GET
+		try {
+
+			// Construct the GET
+			URL finalUrl = new URL(url);
+			conn = (HttpURLConnection) finalUrl.openConnection();
+			conn.setRequestMethod("GET");
+
+			// Read the response
+			BufferedReader in = new BufferedReader(
+					new InputStreamReader(conn.getInputStream()));
+			String inputLine;
+			StringBuffer response = new StringBuffer();
+			while ((inputLine = in.readLine()) != null) {
+				response.append(inputLine);
+			}
+			in.close();
+
+			if(conn.getResponseCode() == 204) {
+				return new JSONObject().put("success", "true");
+			}
+
+			// Return the result
+			return new JSONObject(response.toString());
+		}
+		catch (Exception e) {
+			return new JSONObject();
+		} finally {
+			if(conn != null){
+				conn.disconnect();
+			}
+		}
+
+	}
+
+	public static JSONObject getData(final String url, String authorization, String xToken){
+
+		HttpURLConnection conn = null;
+
+		// Construct the GET
+		try {
+
+			// Construct the GET
+			URL finalUrl = new URL(url);
+			conn = (HttpURLConnection) finalUrl.openConnection();
+			conn.setRequestMethod("GET");
+
+			if(authorization != null){
+				conn.setRequestProperty("Authorization", "Bearer " + authorization);
+			}
+			if(xToken != null) {
+				conn.setRequestProperty("X-Device-Token", xToken);
+			}
+
+			// Read the response
+			BufferedReader in = new BufferedReader(
+					new InputStreamReader(conn.getInputStream()));
+			String inputLine;
+			StringBuffer response = new StringBuffer();
+			while ((inputLine = in.readLine()) != null) {
+				response.append(inputLine);
+			}
+			in.close();
+
+			if(conn.getResponseCode() == 204) {
+				return new JSONObject().put("success", "true");
+			}
+
+			// Return the result
+			return new JSONObject(response.toString());
+		}
+		catch (Exception e) {
+			return new JSONObject();
+		} finally {
+			if(conn != null){
+				conn.disconnect();
+			}
+		}
+
+	}
+
+	public static String getText(final String url, String authorization, String xToken){
+
+		HttpURLConnection conn = null;
+
+		// Construct the GET
+		try {
+
+			// Construct the GET
+			URL finalUrl = new URL(url);
+			conn = (HttpURLConnection) finalUrl.openConnection();
+			conn.setRequestMethod("GET");
+
+			if(authorization != null){
+				conn.setRequestProperty("Authorization", "Bearer " + authorization);
+			}
+			if(xToken != null) {
+				conn.setRequestProperty("X-Device-Token", xToken);
+			}
+
+			// Read the response
+			BufferedReader in = new BufferedReader(
+					new InputStreamReader(conn.getInputStream()));
+			String inputLine;
+			StringBuffer response = new StringBuffer();
+			while ((inputLine = in.readLine()) != null) {
+				response.append(inputLine);
+			}
+			in.close();
+
+			return response.toString();
+		}
+		catch (Exception e) {
+			return "";
+		} finally {
+			if(conn != null){
+				conn.disconnect();
+			}
+		}
+
+	}
+
 	/**
 	 * Creates a URL for the current API
 	 * @param base The base API URL
@@ -35,11 +424,11 @@ public class Constructors {
 	 * @return The string of the constructed URL
 	 */
 	public static String constructUrl(String base, String[] pairs){
-		
+
 		String URL = base;
-		
+
 		for(int i = 0; i < pairs.length; i += 2){
-			
+
 			if(pairs[i] != null){
 				if(i != 0){
 					String pair = "&" + pairs[i] + "=" + pairs[i+1];
@@ -49,143 +438,16 @@ public class Constructors {
 					String pair = pairs[i] + "=" + pairs[i+1];
 					URL += pair;
 				}
-				
+
 			}
-			
+
 		}
-		
+
 		URL = URL.replace(" ","%20");
 		return URL;
-		
-	}
-	
-	/**
-	 * Makes an HTTP GET call to download the JSON from the given URL
-	 * @param URL The URL to connect to
-	 * @return A JSONObject containing the HTTP GET results
-	 */
-	public static JSONObject constructJSON(String URL){
-		
-		String content = "";
-		URL.replace(" ", "%20");
-
-		try{
-			
-			URL Url = new URL(URL);
-			URLConnection conn = Url.openConnection();
-			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-			
-			String line;
-			while ((line = bufferedReader.readLine()) != null){
-				content += line + "\n";
-			}
-			bufferedReader.close();
-			
-			return new JSONObject(content);
-			
-		} catch(Exception e){
-			System.out.println(content);
-			System.out.println("Error occurred: " + e);
-			return new JSONObject();
-		}
-		
-	}
-	
-	/**
-	 * Makes an HTTP GET call to download the JSON from the given URL
-	 * @param URL The URL to connect to
-	 * @return A JSONArray containing the HTTP GET results
-	 */
-	public static JSONArray constructJSONArray(String URL){
-		
-		String content = "";
-
-		try{
-			
-			URL Url = new URL(URL);
-			URLConnection conn = Url.openConnection();
-			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-			
-			String line;
-			while ((line = bufferedReader.readLine()) != null){
-				content += line + "\n";
-			}
-			bufferedReader.close();
-			
-			return new JSONArray(content);
-			
-		} catch(Exception e){
-			System.out.println(content);
-			System.out.println("Error occurred: " + e);
-			return new JSONArray();
-		}
-		
-	}
-
-	/*
-	 * Posts data to the specified URL
-	 * @param urlt The URL to post information to
-	 * @param data The JSON data to post
-	 * @return The response code
-	 * @throws IOException
-	 *
-	public static int postData(String urlt, String data) throws IOException{
-		
-		HttpClient httpClient = new DefaultHttpClient();
-
-	    try {
-	    	
-	        HttpPost request = new HttpPost(urlt);
-	        StringEntity params = new StringEntity(data);
-	        final String basicAuth = "Basic " + Base64.getDecoder().decode("parcio:parcio");
-            request.addHeader("Authorization", basicAuth);
-            params.setContentType(new BasicHeader(HTTP.CONTENT_TYPE,"application/json"));
-	        request.setEntity(params);
-	        System.out.println(request);
-	        for(Header h : request.getAllHeaders()){System.out.println(h);}
-	        System.out.println(data);
-	        HttpResponse response = httpClient.execute(request);
-	        for(Header h : response.getAllHeaders()){System.out.println(h);}
-	        return response.getStatusLine().getStatusCode();
-	    }catch (Exception ex) {
-	    	ex.printStackTrace();
-	        System.out.println(ex.getMessage());
-	        return 400;
-	    } finally {
-	        httpClient.getConnectionManager().shutdown();
-	    }
-		
-	}//*/
-
-	public static JSONObject postData(String url, String data){
-
-		HttpClient httpClient = new DefaultHttpClient();
-
-		try {
-
-			HttpPost request = new HttpPost(url);
-			StringEntity params = new StringEntity(data);
-			params.setContentType(new BasicHeader(HTTP.CONTENT_TYPE,"application/json"));
-			request.setEntity(params);
-			request.setHeader("Content-Type", "application/json");
-			//for(Header h : request.getAllHeaders()){System.out.println(h);}
-			//System.out.println(data);
-			HttpResponse response = httpClient.execute(request);
-			//for(Header h : response.getAllHeaders()){System.out.println(h);}
-			//System.out.println(response.toString());
-			BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
-			String json = reader.readLine();
-			return new JSONObject(json);
-		}catch (Exception ex) {
-			ex.printStackTrace();
-			System.out.println(ex.getMessage());
-			return new JSONObject("{error: There was an error logging in!");
-		} finally {
-			httpClient.getConnectionManager().shutdown();
-		}
 
 	}
-	
+
 	/**
 	 * Adds or changes extra parameter pairs to a URL that has already been created
 	 * If the parameter already exists in the URL, the parameter is changed
@@ -195,13 +457,13 @@ public class Constructors {
 	 * @return The string of the constructed URL
 	 */
 	public static String modifyUrlParam(String url, String[] pairs){
-		
+
 		String URL = url;
-		
+
 		for(int i = 0; i < pairs.length; i += 2){
-			
+
 			if(pairs[i] != null){
-				
+
 				if(URL.contains(pairs[i] + "=")){
 					int start = URL.indexOf(pairs[i] + "=");
 					int end = URL.indexOf("&", start);
@@ -215,12 +477,13 @@ public class Constructors {
 				}
 
 			}
-			
+
 		}
-		
+
 		URL = URL.replace(" ","%20");
 		return URL;
-		
+
 	}
-	
+
+
 }

@@ -59,7 +59,7 @@ public class WUAstronomy implements EasyApiComponent{
     public void downloadData() throws ApiException, BadRequestException, DataNotSetException, AuthRequiredException {
 
         try {
-            result = Constructors.constructJSON(url);
+            result = Constructors.getData(url, null);
             JSONObject jObj = new JSONObject(result.toString());
             jObj = jObj.getJSONObject("moon_phase");
             percentIlluminated = jObj.getString("percentIlluminated");

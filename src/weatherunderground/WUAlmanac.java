@@ -63,7 +63,7 @@ public class WUAlmanac implements EasyApiComponent{
     public void downloadData() throws ApiException, BadRequestException, DataNotSetException, AuthRequiredException {
 
         try {
-            result = Constructors.constructJSON(url);
+            result = Constructors.getData(url, null);
             JSONObject jObj = new JSONObject(result.toString());
             jObj = jObj.getJSONObject("almanac");
             airportCode    = jObj.getString("airport_code");

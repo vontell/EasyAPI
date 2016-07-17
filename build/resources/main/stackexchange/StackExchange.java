@@ -34,7 +34,7 @@ public class StackExchange {
     public static String[] getSiteParameters(){
 
         String siteURL = "https://api.stackexchange.com/2.2/sites";
-        JSONObject jObject = Constructors.constructJSON(siteURL);
+        JSONObject jObject = Constructors.getData(siteURL, null);
         JSONArray jArray = jObject.getJSONArray("items");
         //System.out.println(jObject.toString());
         int numSites = jArray.length();

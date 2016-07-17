@@ -90,7 +90,7 @@ public class GoogleDirections{
 	public void downloadData(){
 
 		//Retrieve the JSON data, and also store the text for later use
-		JSONObject jObject = Constructors.constructJSON(finalURL);
+		JSONObject jObject = Constructors.getData(finalURL, null);
 		jsonContent = jObject.toString();
 
 		//Store the information
@@ -162,7 +162,7 @@ public class GoogleDirections{
 		String url = Constructors.constructUrl(BASE_URL, params);
 		
 		//TODO: Need to wrap this is some sort of time-based stop
-		JSONObject jObject = Constructors.constructJSON(url);
+		JSONObject jObject = Constructors.getData(url, null);
 		
 		//Parses the time out of the JSON content
 
@@ -198,7 +198,7 @@ public class GoogleDirections{
 		String url = Constructors.constructUrl(BASE_URL, params);
 		
 		//TODO: Need to wrap this is some sort of time-based stop
-		JSONObject jObject = Constructors.constructJSON(url);
+		JSONObject jObject = Constructors.getData(url, null);
 		
 		//Parses the time out of the JSON content
 

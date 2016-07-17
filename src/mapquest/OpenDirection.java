@@ -98,7 +98,7 @@ public class OpenDirection {
 	public void downloadData(){
 		
 		//Retrieve the JSON data, and also store the text for later use
-		JSONObject jObject = Constructors.constructJSON(finalURL);
+		JSONObject jObject = Constructors.getData(finalURL, null);
 		jsonContent = jObject.toString();
 				
 		//Store the information
