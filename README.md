@@ -1,6 +1,8 @@
 EasyAPI [![Build Status](https://travis-ci.org/vontell/EasyAPI.svg?branch=master)](https://travis-ci.org/vontell/EasyAPI)
 =======
 
+<a href="https://www.buymeacoffee.com/SYwZPjK4F" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/black_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+
 A Java-based library that parses RESTful APIs into useful objects.
 EasyAPI hopes to create easy RESTful API interaction by creating a simple object from your API key, and then allowing full API interaction through that object.
 
